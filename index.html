@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ortobom T-7 | Colchões e conforto para o seu sono, em Goiânia</title>
+<meta name="description" content="Ortobom T-7 — colchões, bases, cabeceiras e acessórios das linhas Ouro, Pró Saúde, Fashion e Pillow Top. Loja na Avenida T-7, Goiânia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0A2050;
+    --navy:#0F2E6B;
+    --blue:#1665D8;
+    --blue-light:#4A9DFF;
+    --gold:#C9A227;
+    --gold-light:#E4C765;
+    --bg:#F6F7FA;
+    --card:#FFFFFF;
+    --ink:#12213F;
+    --ink-soft:#4A5670;
+    --line:#E3E7EF;
+    --radius:14px;
+    --shadow:0 10px 30px -12px rgba(10,32,80,0.18);
+    --shadow-sm:0 4px 14px -6px rgba(10,32,80,0.15);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Poppins',sans-serif;
+    margin:0;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* Chevron pattern - signature texture pulled from Ortobom's own catalog covers */
+  .chevrons{
+    position:absolute;inset:0;
+    background-image:repeating-linear-gradient(135deg, rgba(255,255,255,0.055) 0 2px, transparent 2px 22px);
+    mask-image:linear-gradient(to bottom, black, transparent 92%);
+    pointer-events:none;
+  }
+  .chevrons::before{
+    content:'';
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(45deg, transparent 46%, rgba(255,255,255,0.08) 46% 48%, transparent 48%),
+      linear-gradient(45deg, transparent 46%, rgba(255,255,255,0.08) 46% 48%, transparent 48%);
+    background-size:46px 46px;
+    background-position:0 0, 23px 23px;
+  }
+
+  /* Top bar */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,32,80,0.97);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .topbar-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1180px;margin:0 auto;
+    gap:20px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Poppins',sans-serif;font-weight:700;
+    color:#fff;font-size:20px;letter-spacing:0.2px;
+    white-space:nowrap;
+  }
+  .logo span{color:var(--gold-light);}
+  .nav-links{
+    display:flex;gap:28px;flex:1;justify-content:center;
+  }
+  .nav-links a{
+    color:rgba(255,255,255,0.82);font-size:14.5px;font-weight:500;
+    padding:6px 2px;border-bottom:2px solid transparent;
+    transition:.2s;
+  }
+  .nav-links a:hover{color:#fff;border-color:var(--gold-light);}
+  .loc-pill{
+    display:inline-flex;align-items:center;gap:7px;
+    background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.22);
+    color:#fff;font-size:13.5px;font-weight:600;font-family:inherit;
+    padding:8px 15px;border-radius:100px;cursor:pointer;transition:.2s;
+  }
+  .loc-pill:hover{background:rgba(255,255,255,0.2);}
+
+  /* Location modal */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(8,16,40,0);backdrop-filter:blur(0px);
+    z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;
+    opacity:0;pointer-events:none;
+    transition:opacity .35s ease, background .35s ease, backdrop-filter .35s ease;
+  }
+  .modal-backdrop.open{
+    opacity:1;pointer-events:auto;
+    background:rgba(8,16,40,0.6);backdrop-filter:blur(3px);
+  }
+  .modal-box{
+    background:#fff;border-radius:20px;max-width:760px;width:100%;
+    max-height:88vh;overflow-y:auto;box-shadow:0 30px 70px -20px rgba(0,0,0,0.4);
+    position:relative;
+    opacity:0;transform:translateY(24px) scale(0.97);
+    transition:opacity .4s cubic-bezier(.2,.8,.3,1), transform .4s cubic-bezier(.2,.8,.3,1);
+  }
+  .modal-backdrop.open .modal-box{
+    opacity:1;transform:translateY(0) scale(1);
+  }
+  .modal-close{
+    position:absolute;top:16px;right:16px;z-index:2;
+    width:36px;height:36px;border-radius:50%;background:rgba(10,20,45,0.55);
+    color:#fff;border:none;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  }
+  .modal-gallery{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:240px;gap:4px;height:240px;overflow:hidden;border-radius:20px 20px 0 0;}
+  .modal-gallery img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .modal-gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:4px;}
+  .modal-body{padding:28px;}
+  .modal-body h3{font-size:22px;font-weight:700;font-family:'Poppins',sans-serif;}
+  .modal-row{display:flex;gap:14px;margin-top:18px;align-items:flex-start;}
+  .modal-map{width:100%;height:220px;border:0;border-radius:14px;margin-top:20px;}
+  @media (max-width:600px){
+    .modal-gallery{grid-template-columns:1fr;height:170px;}
+    .modal-gallery-side{display:none;}
+  }
+  .btn-wpp{
+    display:inline-flex;align-items:center;gap:8px;
+    background:linear-gradient(135deg,#2FCB63,#22B558);
+    color:#fff;font-weight:600;font-size:14px;
+    padding:10px 18px;border-radius:100px;
+    box-shadow:0 6px 16px -4px rgba(34,181,88,0.55);
+    white-space:nowrap;transition:.2s;
+  }
+  .btn-wpp:hover{transform:translateY(-1px);box-shadow:0 8px 20px -4px rgba(34,181,88,0.7);}
+  .btn-wpp svg{width:18px;height:18px;}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer;}
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;
+    background:linear-gradient(120deg,var(--navy-deep) 0%, var(--navy) 45%, var(--blue) 100%);
+    color:#fff;
+    padding:90px 24px 110px;
+  }
+  .hero-inner{
+    max-width:1180px;margin:0 auto;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);
+    padding:7px 14px;border-radius:100px;font-size:12.5px;font-weight:600;
+    letter-spacing:0.06em;text-transform:uppercase;color:var(--gold-light);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(32px,4.4vw,50px);
+    line-height:1.08;font-weight:700;color:#fff;
+    letter-spacing:-0.5px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--gold-light);
+  }
+  .hero p.lead{
+    margin-top:20px;font-size:17.5px;line-height:1.6;
+    color:rgba(255,255,255,0.82);max-width:480px;
+  }
+  .hero-cta{
+    margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:#fff;color:var(--navy);font-weight:700;
+    padding:15px 26px;border-radius:100px;font-size:15px;
+    box-shadow:var(--shadow);transition:.2s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);}
+  .btn-ghost{
+    border:1.5px solid rgba(255,255,255,0.4);color:#fff;font-weight:600;
+    padding:14px 24px;border-radius:100px;font-size:15px;transition:.2s;
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .hero-stats{
+    display:flex;gap:28px;margin-top:44px;flex-wrap:wrap;
+  }
+  .hero-stats div{min-width:110px;}
+  .hero-stats strong{
+    display:block;font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:#fff;
+  }
+  .hero-stats span{font-size:12.5px;color:rgba(255,255,255,0.68);}
+
+  .hero-visual{
+    position:relative;border-radius:20px;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+    transform:rotate(1.2deg);
+    border:6px solid rgba(255,255,255,0.08);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero-visual .tag{
+    position:absolute;bottom:16px;left:16px;
+    background:rgba(10,20,45,0.72);backdrop-filter:blur(4px);
+    color:#fff;padding:9px 14px;border-radius:10px;font-size:12.5px;font-weight:600;
+  }
+
+  /* Trust bar */
+  .trust{
+    background:#fff;border-bottom:1px solid var(--line);
+    margin-top:-56px;position:relative;z-index:5;
+  }
+  .trust-inner{
+    max-width:1120px;margin:0 auto;
+    background:var(--card);border-radius:16px;
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(4,1fr);
+    padding:6px;
+  }
+  .trust-item{
+    display:flex;align-items:center;gap:12px;padding:20px 22px;
+    border-right:1px solid var(--line);
+  }
+  .trust-item:last-child{border-right:none;}
+  .trust-ic{
+    width:38px;height:38px;border-radius:10px;flex-shrink:0;
+    background:linear-gradient(135deg,var(--blue),var(--navy));
+    display:flex;align-items:center;justify-content:center;color:#fff;
+  }
+  .trust-item h4{font-size:14px;font-weight:700;}
+  .trust-item p{margin:2px 0 0;font-size:12.5px;color:var(--ink-soft);}
+
+  /* Category circles (premium) */
+  .cat-circles-section{position:relative;}
+  .cat-circles{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:38px 30px;
+    padding-top:6px;
+  }
+  .cat-circle{
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    width:130px;text-decoration:none;
+  }
+  .cat-circle-ring{
+    width:112px;height:112px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+    background:#fff;
+    border:2.5px solid transparent;
+    background-image:
+      linear-gradient(#fff,#fff),
+      linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-light));
+    background-origin:border-box;background-clip:content-box, border-box;
+    box-shadow:0 10px 24px -8px rgba(10,32,80,0.28), 0 0 0 6px rgba(201,162,39,0.08);
+    transition:transform .3s cubic-bezier(.2,.8,.3,1), box-shadow .3s;
+    position:relative;
+  }
+  .cat-circle-ring img{
+    width:100%;height:100%;object-fit:cover;border-radius:50%;
+    transition:transform .45s;
+  }
+  .cat-circle-ring-brand{
+    background-image:
+      linear-gradient(var(--navy-deep),var(--navy-deep)),
+      linear-gradient(135deg, var(--gold-light), var(--gold) 55%, var(--gold-light));
+  }
+  .cat-circle-glyph{font-size:34px;filter:grayscale(0.15);}
+  .cat-circle:hover .cat-circle-ring{
+    transform:translateY(-6px) scale(1.04);
+    box-shadow:0 18px 34px -10px rgba(10,32,80,0.4), 0 0 0 8px rgba(201,162,39,0.14);
+  }
+  .cat-circle:hover .cat-circle-ring img{transform:scale(1.1);}
+  .cat-circle-label{
+    font-family:'Poppins',sans-serif;font-size:14.5px;font-weight:600;
+    color:var(--ink);letter-spacing:0.1px;text-align:center;
+  }
+  @media (max-width:700px){
+    .cat-circles{gap:26px 18px;}
+    .cat-circle{width:92px;}
+    .cat-circle-ring{width:84px;height:84px;}
+    .cat-circle-glyph{font-size:26px;}
+    .cat-circle-label{font-size:13px;}
+  }
+
+  /* Section headers */
+  .section{padding:88px 24px 20px;}
+  .section-head{
+    display:flex;align-items:flex-end;justify-content:space-between;
+    margin-bottom:38px;flex-wrap:wrap;gap:16px;
+  }
+  .section-kicker{
+    font-size:12.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--blue);margin-bottom:8px;display:block;
+  }
+  .section-head h2{font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-0.4px;}
+  .section-head p{color:var(--ink-soft);font-size:15px;margin-top:8px;max-width:520px;}
+  .line-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:100px;font-size:13px;font-weight:700;
+  }
+  .line-ouro .line-badge{background:linear-gradient(135deg,var(--gold-light),var(--gold));color:#3d2f05;}
+  .line-prosaude .line-badge{background:#E7F0FF;color:var(--navy);}
+  .line-fashion .line-badge{background:#EFEAFB;color:#4A3A87;}
+  .line-pillow .line-badge{background:#E9F8F0;color:#1E7A4C;}
+
+  /* Product grid */
+  .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:22px;
+  }
+  .card{
+    background:var(--card);border-radius:var(--radius);overflow:hidden;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+    display:flex;flex-direction:column;
+    transition:transform .25s, box-shadow .25s;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
+  .card-img{
+    aspect-ratio:4/3;background:#EEF1F6;overflow:hidden;position:relative;
+  }
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+  .card:hover .card-img img{transform:scale(1.05);}
+  .card-tag{
+    position:absolute;top:10px;left:10px;
+    background:rgba(255,255,255,0.92);color:var(--navy);
+    font-size:11px;font-weight:700;padding:5px 10px;border-radius:100px;
+  }
+  .card-body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1;}
+  .card-body h3{font-size:16px;font-weight:700;letter-spacing:-0.2px;}
+  .card-body p{font-size:13px;color:var(--ink-soft);line-height:1.45;flex:1;margin:0;}
+  .card-price{
+    margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
+    display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+  }
+  .card-price strong{font-size:18px;font-weight:700;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .card-price span{font-size:11.5px;color:var(--ink-soft);}
+  .card-price .price-consult{font-size:14px;color:var(--blue);font-family:inherit;font-weight:700;}
+  .card-cta{
+    margin-top:10px;display:flex;align-items:center;justify-content:space-between;
+    gap:10px;padding-top:2px;
+  }
+  .card-cta a{
+    font-size:13px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:6px;
+  }
+  .card-cta a:hover{color:var(--navy);}
+
+  /* Divider band between sections */
+  .band{
+    margin:90px 0 0;padding:56px 24px;
+    background:linear-gradient(120deg,var(--navy-deep),var(--navy));
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .band-inner{
+    max-width:1180px;margin:0 auto;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
+  }
+  .band h3{font-size:26px;font-weight:700;}
+  .band p{color:rgba(255,255,255,0.78);margin-top:10px;font-size:15px;max-width:480px;}
+  .band-form{
+    background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
+    border-radius:16px;padding:22px;
+  }
+  .quiz-opt{
+    display:block;width:100%;text-align:left;
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);
+    color:#fff;padding:13px 16px;border-radius:10px;font-size:14px;font-weight:600;
+    margin-bottom:10px;cursor:pointer;transition:.2s;font-family:inherit;
+  }
+  .quiz-opt:hover{background:rgba(255,255,255,0.16);border-color:var(--gold-light);}
+  .quiz-opt:last-child{margin-bottom:0;}
+
+  /* Location */
+  .store-gallery{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:22px;
+  }
+  .store-gallery img{width:100%;height:280px;object-fit:cover;border-radius:16px;box-shadow:var(--shadow-sm);}
+  @media (max-width:700px){
+    .store-gallery{grid-template-columns:1fr;}
+    .store-gallery img{height:220px;}
+  }
+  .locations{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:26px;
+    background:var(--card);border-radius:20px;padding:30px;
+    box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  }
+  .locations iframe{width:100%;height:100%;min-height:340px;border:0;border-radius:14px;}
+  .loc-info h3{font-size:22px;font-weight:700;}
+  .loc-row{display:flex;gap:14px;margin-top:20px;align-items:flex-start;}
+  .loc-ic{
+    width:36px;height:36px;border-radius:9px;background:#EEF3FF;color:var(--blue);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .loc-row h4{font-size:14.5px;font-weight:700;}
+  .loc-row p{font-size:13.5px;color:var(--ink-soft);margin:3px 0 0;line-height:1.5;}
+
+  footer{
+    background:var(--navy-deep);color:rgba(255,255,255,0.72);
+    padding:50px 24px 26px;margin-top:90px;
+  }
+  .foot-inner{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
+  }
+  .foot-logo{font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:19px;}
+  footer p{font-size:13.5px;line-height:1.6;margin-top:12px;}
+  footer h5{color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px;}
+  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
+  footer a{font-size:13.5px;transition:.2s;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{
+    max-width:1180px;margin:36px auto 0;padding-top:22px;
+    border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.5);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  .fab-wpp{
+    position:fixed;bottom:22px;right:22px;z-index:60;
+    background:linear-gradient(135deg,#2FCB63,#22B558);
+    color:#fff;width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px -6px rgba(34,181,88,0.6);
+    transition:.2s;
+  }
+  .fab-wpp:hover{transform:scale(1.08);}
+  .fab-wpp svg{width:28px;height:28px;}
+
+  @media (max-width:940px){
+    .nav-links{display:none;}
+    .burger{display:block;}
+    .hero-inner{grid-template-columns:1fr;}
+    .hero-visual{order:-1;transform:none;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .trust-inner{grid-template-columns:repeat(2,1fr);}
+    .trust-item:nth-child(2){border-right:none;}
+    .band-inner{grid-template-columns:1fr;}
+    .locations{grid-template-columns:1fr;}
+    .foot-inner{grid-template-columns:1fr;gap:26px;}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .hero{padding:70px 20px 90px;}
+    .section{padding:64px 18px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="logo">Ortobom <span>T-7</span></a>
+    <nav class="nav-links">
+      <a href="#categorias">Categorias</a>
+      <button class="loc-pill" id="btn-loc-modal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Goiânia - GO
+      </button>
+    </nav>
+    <a class="btn-wpp" id="wpp-top" href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.4.2-.8.1-1z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.5c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.4 1 1-3.3-.2-.3C3.5 15 3 13.5 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
+      WhatsApp
+    </a>
+    <button class="burger" id="burger">☰</button>
+  </div>
+</div>
+
+<section class="hero" id="top">
+  <div class="chevrons"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Av. T-7 · Setor Bueno, Goiânia</span>
+      <h1>Sua próxima noite <em>bem dormida</em> começa numa Ortobom.</h1>
+      <p class="lead">Colchões, bases, cabeceiras e acessórios das linhas Ouro, Pró Saúde, Fashion e Pillow Top — com atendimento consultivo pra você escolher o conforto certo, sem achismo.</p>
+      <div class="hero-cta">
+        <a href="#linha-ouro" class="btn-primary">Ver catálogo completo</a>
+        <a href="#" id="wpp-hero" target="_blank" rel="noopener" class="btn-ghost">Falar com um consultor</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>25+</strong><span>Modelos de colchão</span></div>
+        <div><strong>21x</strong><span>Sem juros no cartão</span></div>
+        <div><strong>5 anos</strong><span>Garantia estrutural*</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="fachada.jpg" alt="Fachada da loja Ortobom T-7 à noite">
+      <div class="tag">Nossa loja · Av. T-7</div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
+        <div><h4>Parcele em até 21x</h4><p>No cartão de crédito</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
+        <div><h4>Garantia de fábrica</h4><p>Estrutura e espuma certificadas</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18.5" cy="20" r="2"/></svg></div>
+        <div><h4>Entrega e montagem</h4><p>Goiânia e região metropolitana</p></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 1 1-8.5-8.5c2 0 3.9.7 5.3 1.9"/><path d="M21 4v5h-5"/></svg></div>
+        <div><h4>Atendimento consultivo</h4><p>A gente te ajuda a escolher</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY CIRCLES (premium) -->
+<section class="section cat-circles-section" id="categorias" style="padding-top:70px;">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Navegue por categoria</span>
+        <h2>Encontre o que você procura</h2>
+      </div>
+    </div>
+    <div class="cat-circles">
+      <a href="#linha-ouro" class="cat-circle">
+        <span class="cat-circle-ring"><img src="absolut-hybrid.jpg" alt="Colchões Ortobom"></span>
+        <span class="cat-circle-label">Colchões</span>
+      </a>
+      <a href="#outras-categorias" class="cat-circle">
+        <span class="cat-circle-ring"><img src="ouro-spring.jpg" alt="Bases Ortobom"></span>
+        <span class="cat-circle-label">Bases</span>
+      </a>
+      <a href="#outras-categorias" class="cat-circle">
+        <span class="cat-circle-ring"><img src="liberty.jpg" alt="Cabeceiras Ortobom"></span>
+        <span class="cat-circle-label">Cabeceiras</span>
+      </a>
+      <a href="#pillow-top" class="cat-circle">
+        <span class="cat-circle-ring"><img src="pillow-top-hr-gel.jpg" alt="Acessórios Ortobom"></span>
+        <span class="cat-circle-label">Acessórios</span>
+      </a>
+      <a href="#outras-categorias" class="cat-circle">
+        <span class="cat-circle-ring cat-circle-ring-brand"><span class="cat-circle-glyph">🛋️</span></span>
+        <span class="cat-circle-label">Móveis</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- LINHA OURO -->
+<section class="section line-ouro" id="linha-ouro">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Linha Ouro</span>
+        <h2>O topo de linha Ortobom</h2>
+        <p>Tecnologias premium — molas ensacadas, viscoelástico, tecido antiviral V-Protect — pra quem não abre mão do melhor conforto.</p>
+      </div>
+      <span class="line-badge">🏆 Linha Ouro</span>
+    </div>
+    <div class="grid" id="grid-ouro"></div>
+  </div>
+</section>
+
+<!-- Interactive band: sleep profile quiz -->
+<section class="band">
+  <div class="chevrons"></div>
+  <div class="band-inner">
+    <div>
+      <h3>Não sabe qual colchão combina com você?</h3>
+      <p>Responda uma pergunta rápida e a gente te indica a linha certa — sem enrolação, direto no WhatsApp com um consultor de verdade.</p>
+    </div>
+    <div class="band-form">
+      <button class="quiz-opt" data-q="Firme e ortopédico, pra quem sente dor nas costas">🦴 Prefiro um colchão bem firme</button>
+      <button class="quiz-opt" data-q="Macio e aconchegante, tipo nuvem">☁️ Prefiro um colchão macio, tipo nuvem</button>
+      <button class="quiz-opt" data-q="Não sei bem, quero uma indicação personalizada">🤔 Não sei, quero indicação personalizada</button>
+    </div>
+  </div>
+</section>
+
+<!-- PRÓ SAÚDE -->
+<section class="section line-prosaude" id="pro-saude">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Linha Pró Saúde</span>
+        <h2>Equilíbrio entre conforto e custo-benefício</h2>
+        <p>Molas Superpocket, espumas de alta resiliência e tecidos antiderrapantes — o queridinho de quem quer qualidade sem pagar o topo de linha.</p>
+      </div>
+      <span class="line-badge">💙 Pró Saúde</span>
+    </div>
+    <div class="grid" id="grid-prosaude"></div>
+  </div>
+</section>
+
+<!-- FASHION -->
+<section class="section line-fashion" id="fashion">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Linha Fashion</span>
+        <h2>Praticidade pra quem está montando a casa</h2>
+        <p>Ótima entrada, bom giro de compra — inclusive com opções embaladas a vácuo, fáceis de transportar em apartamento.</p>
+      </div>
+      <span class="line-badge">🛋️ Fashion</span>
+    </div>
+    <div class="grid" id="grid-fashion"></div>
+  </div>
+</section>
+
+<!-- PILLOW TOP / ACESSÓRIOS -->
+<section class="section line-pillow" id="pillow-top">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Pillow Top Ortobom</span>
+        <h2>Dá uma segunda vida pro seu colchão atual</h2>
+        <p>Camadas extras de conforto pra colocar sobre o colchão que você já tem — solução rápida e mais em conta.</p>
+      </div>
+      <span class="line-badge">✨ Acessórios</span>
+    </div>
+    <div class="grid" id="grid-pillow"></div>
+  </div>
+</section>
+
+<!-- OUTRAS CATEGORIAS -->
+<section class="section" id="outras-categorias">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Linha completa Ortobom</span>
+        <h2>Bases, cabeceiras, roupa de cama, travesseiros e móveis</h2>
+        <p>Também trabalhamos com a linha completa da marca. Fotos reais dessas categorias chegam em breve — chama no WhatsApp que a gente já te manda o catálogo.</p>
+      </div>
+    </div>
+    <div class="grid" id="grid-outras" style="grid-template-columns:repeat(5,1fr);"></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="loja">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-kicker">Venha nos visitar</span>
+        <h2>Estamos na Av. T-7</h2>
+        <p>Deite, teste e sinta o conforto antes de decidir. Atendimento consultivo, sem pressa.</p>
+      </div>
+    </div>
+    <div class="store-gallery">
+      <img src="interior.jpg" alt="Interior da loja Ortobom T-7 com colchões expostos">
+      <img src="roupa-cama.jpg" alt="Vitrine de travesseiros e roupas de cama na loja Ortobom T-7">
+    </div>
+    <div class="locations">
+      <iframe src="https://www.google.com/maps?q=Av.+T-7,+554,+Setor+Bueno,+Goi%C3%A2nia+-+GO&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="loc-info">
+        <h3>Ortobom T-7</h3>
+        <div class="loc-row">
+          <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>Endereço</h4><p>Av. T-7, 554 — Setor Bueno, Goiânia, GO</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><h4>Horário de atendimento</h4><p>Seg. a sex.: 8h às 19h30 &nbsp;·&nbsp; Sáb.: 8h às 14h</p></div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></div>
+          <div><h4>WhatsApp</h4><p>(62) 3638-4245</p></div>
+        </div>
+        <a href="#" id="wpp-loc" target="_blank" rel="noopener" class="btn-primary" style="margin-top:24px;display:inline-block;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-logo">Ortobom T-7</div>
+      <p>Colchões, bases, cabeceiras e acessórios Ortobom em Goiânia. Atendimento consultivo, entrega e montagem em toda a região metropolitana.</p>
+    </div>
+    <div>
+      <h5>Catálogo</h5>
+      <ul>
+        <li><a href="#linha-ouro">Linha Ouro</a></li>
+        <li><a href="#pro-saude">Pró Saúde</a></li>
+        <li><a href="#fashion">Fashion</a></li>
+        <li><a href="#pillow-top">Acessórios</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="#" id="wpp-foot" target="_blank" rel="noopener">WhatsApp: (62) 3638-4245</a></li>
+        <li><a href="https://instagram.com/ortobomt7" target="_blank" rel="noopener">@ortobomt7</a></li>
+        <li><a href="#loja">Av. T-7, 554 — Setor Bueno, Goiânia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Ortobom T-7. Todos os direitos reservados.</span>
+    <span>*Prazos de garantia variam por modelo — confira detalhes com o consultor.</span>
+  </div>
+</footer>
+
+<a href="#" id="wpp-fab" target="_blank" rel="noopener" class="fab-wpp" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.5.1-.6l.4-.5c.1-.1.2-.3.2-.4.1-.1 0-.3 0-.4-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.3-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.6 2.5 3.9 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.2-.5 1.4-1 .2-.4.2-.8.1-1z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.5 5.2L2 22l4.9-1.5c1.5.8 3.2 1.3 5.1 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.7 0-3.3-.5-4.6-1.3l-.3-.2-3.4 1 1-3.3-.2-.3C3.5 15 3 13.5 3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9z"/></svg>
+</a>
+
+<!-- LOCATION MODAL -->
+<div class="modal-backdrop" id="loc-modal">
+  <div class="modal-box">
+    <button class="modal-close" id="loc-modal-close" aria-label="Fechar">✕</button>
+    <div class="modal-gallery">
+      <img src="fachada.jpg" alt="Fachada da loja Ortobom T-7" style="object-position:center 25%;">
+      <div class="modal-gallery-side">
+        <img src="interior.jpg" alt="Interior da loja Ortobom T-7" style="object-position:center 55%;">
+        <img src="roupa-cama.jpg" alt="Vitrine de travesseiros Ortobom T-7">
+      </div>
+    </div>
+    <div class="modal-body">
+      <span class="section-kicker">Nossa loja</span>
+      <h3>Ortobom T-7 · Goiânia, GO</h3>
+      <div class="modal-row">
+        <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><h4>Endereço</h4><p>Av. T-7, 554 — Setor Bueno, Goiânia, GO</p></div>
+      </div>
+      <div class="modal-row">
+        <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><h4>Horário de atendimento</h4><p>Seg. a sex.: 8h às 19h30 &nbsp;·&nbsp; Sáb.: 8h às 14h</p></div>
+      </div>
+      <div class="modal-row">
+        <div class="loc-ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.4 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <div><h4>WhatsApp</h4><p>(62) 3638-4245</p></div>
+      </div>
+      <iframe class="modal-map" src="https://www.google.com/maps?q=Av.+T-7,+554,+Setor+Bueno,+Goi%C3%A2nia+-+GO&output=embed" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a href="#" id="wpp-modal" target="_blank" rel="noopener" class="btn-primary" style="margin-top:22px;display:inline-block;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Chamar no WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "556236384245"; // (62) 3638-4245
+// Preços consultados manualmente em ortobom.com.br (região Goiânia-GO) — tamanho Casal quando disponível.
+// Ausência de "price" = produto não encontrado no catálogo nacional online (provável exclusivo de franquia); exibe "Consulte".
+
+const products = {
+  ouro: [
+    {slug:"orion", name:"Orion", desc:"Espuma HR de alta resiliência com tecido antiviral V-Protect.", price:4499},
+    {slug:"bellona", name:"Bellona", desc:"Malha Belga com Pillow Top viscoelástico. Nobreza e sofisticação.", price:3599},
+    {slug:"orthopur", name:"Orthopur", desc:"Tecnologia Fresh Touch — frescor imediato em qualquer noite.", price:4899},
+    {slug:"liberty", name:"Liberty", desc:"Fibra sustentável feita de garrafas PET recicladas.", price:3199},
+    {slug:"pro-forca", name:"Pró Força", desc:"Estrutura resistente com espuma sustentável certificada."},
+    {slug:"absolut-hybrid", name:"Absolut Hybrid", desc:"Dupla face — um lado firme, outro macio. Você escolhe.", price:3299},
+    {slug:"ouro-spring", name:"Ouro Spring", desc:"Molas de fio contínuo com resistência progressiva.", price:2719},
+    {slug:"ortopedico-premium", name:"Ortopédico Premium", desc:"Estrutura em madeira de reflorestamento, firmeza máxima.", price:2749},
+  ],
+  prosaude: [
+    {slug:"only", name:"Only", desc:"Embalado a vácuo — cabe em elevador, sem precisar de caminhão.", price:3749},
+    {slug:"pic-go", name:"PIC-GO", desc:"Compactado, leve e prático — ideal pra mudança e apartamento."},
+    {slug:"pro-saude-visco-adapt", name:"Pró Saúde Visco Adapt", desc:"Camada viscoelástica que molda o formato do corpo.", price:3119},
+    {slug:"pro-saude-superpocket", name:"Pró Saúde Superpocket", desc:"Molas ensacadas individualmente — conforto sem transferir movimento.", price:1169, priceNote:"Solteiro"},
+    {slug:"pro-saude-nanolastic", name:"Pró Saúde Nanolastic", desc:"Molas bicônicas com resistência progressiva ao peso.", price:1499},
+    {slug:"pro-saude-extra-firme", name:"Pró Saúde Extra Firme", desc:"Sustentação extra pra quem prefere firmeza.", price:2199},
+    {slug:"pro-saude-ortopedico", name:"Pró Saúde Ortopédico", desc:"Estrutura em madeira tratada, ecologicamente correta.", price:1619},
+    {slug:"baby-pro-saude", name:"Baby Pró Saúde", desc:"Tratamento Actguard contra ácaros e bactérias — feito pro bebê.", price:409, priceNote:"Infantil"},
+  ],
+  fashion: [
+    {slug:"fashion-superpocket", name:"Fashion Superpocket", desc:"Mini-molas ensacadas com lâmina 100% EPS.", price:1339},
+    {slug:"fashion-nanolastic", name:"Fashion Nanolastic", desc:"Molas bicônicas resistentes, ótimo custo-benefício.", price:1119},
+    {slug:"fashion-firm", name:"Fashion Firm", desc:"Firmeza equilibrada com reforço lateral em PU.", price:749},
+    {slug:"fashion-confortavel", name:"Fashion Confortável", desc:"Conforto acessível pra quem está montando a casa.", price:969},
+    {slug:"fashion-standard", name:"Fashion Standard", desc:"Entrada Ortobom com a qualidade que a marca garante.", price:579},
+    {slug:"colchonete-all-day", name:"Colchonete All Day", desc:"Solução prática pra quarto extra ou uso ocasional.", price:429},
+  ],
+  pillow: [
+    {slug:"pillow-top-hr-gel", name:"Pillow Top HR Gel", desc:"Espuma com gel azul — regula a temperatura durante o sono.", price:719},
+    {slug:"pillow-top-ultra", name:"Pillow Top Ultra", desc:"Algodão 200 fios com espuma Comfort Cel de alta resiliência."},
+    {slug:"pillow-top-percal", name:"Pillow Top Percal", desc:"Fibra siliconada, dupla face — dois níveis de conforto num só."},
+  ]
+};
+
+function waLink(productName, isCategory){
+  let base;
+  if (isCategory) {
+    base = `Olá! Vim pelo site da Ortobom T-7 e quero saber mais sobre ${productName}.`;
+  } else if (productName) {
+    base = `Olá! Vim pelo site da Ortobom T-7 e quero saber mais sobre o colchão ${productName}.`;
+  } else {
+    base = `Olá! Vim pelo site da Ortobom T-7 e gostaria de falar com um consultor.`;
+  }
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base)}`;
+}
+
+function formatPrice(p){
+  return p.toLocaleString('pt-BR', {minimumFractionDigits:0, maximumFractionDigits:0});
+}
+
+function renderGrid(containerId, items, tagLabel){
+  const el = document.getElementById(containerId);
+  el.innerHTML = items.map(p => `
+    <div class="card">
+      <div class="card-img">
+        <img src="${p.slug}.jpg" alt="Colchão ${p.name} Ortobom" loading="lazy">
+        <span class="card-tag">${tagLabel}</span>
+      </div>
+      <div class="card-body">
+        <h3>${p.name}</h3>
+        <p>${p.desc}</p>
+        <div class="card-price">
+          ${p.price
+            ? `<strong>R$ ${formatPrice(p.price)}</strong><span>${p.priceNote ? p.priceNote : 'Casal'} · a partir de</span>`
+            : `<strong class="price-consult">Consulte o preço</strong>`}
+        </div>
+        <div class="card-cta">
+          <a href="${waLink(p.name)}" target="_blank" rel="noopener">
+            Saiba mais →
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderGrid('grid-ouro', products.ouro, 'Linha Ouro');
+renderGrid('grid-prosaude', products.prosaude, 'Pró Saúde');
+renderGrid('grid-fashion', products.fashion, 'Fashion');
+renderGrid('grid-pillow', products.pillow, 'Pillow Top');
+
+// Outras categorias (sem foto real ainda) — CTA direto pro WhatsApp
+const outrasCategorias = ['Bases', 'Cabeceiras', 'Roupas de Cama', 'Travesseiros', 'Móveis'];
+document.getElementById('grid-outras').innerHTML = outrasCategorias.map(cat => `
+  <div class="card" style="text-align:center;">
+    <div class="card-body" style="align-items:center;padding:26px 14px;">
+      <h3 style="margin-bottom:4px;">${cat}</h3>
+      <div class="card-cta" style="border:none;padding:0;margin-top:8px;justify-content:center;">
+        <a href="${waLink(cat, true)}" target="_blank" rel="noopener">Consulte →</a>
+      </div>
+    </div>
+  </div>
+`).join('');
+
+// Wire up generic WhatsApp buttons
+['wpp-top','wpp-hero','wpp-loc','wpp-foot','wpp-fab','wpp-modal'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) el.href = waLink();
+});
+
+// Location modal
+const locModal = document.getElementById('loc-modal');
+document.getElementById('btn-loc-modal').addEventListener('click', ()=>{
+  locModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+function closeLocModal(){
+  locModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('loc-modal-close').addEventListener('click', closeLocModal);
+locModal.addEventListener('click', (e)=>{ if(e.target === locModal) closeLocModal(); });
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLocModal(); });
+
+// Quiz buttons
+document.querySelectorAll('.quiz-opt').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const q = btn.getAttribute('data-q');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá! Fiz o teste de perfil de sono no site e minha resposta foi: '+q+'. Pode me ajudar a escolher o colchão ideal?')}`, '_blank');
+  });
+});
+</script>
+</body>
+</html>
