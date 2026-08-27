@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colchões Ortobom | Ortobom T-7 Goiânia</title>
+<meta name="description" content="Colchões Ortobom das linhas Ouro, Pró Saúde e Fashion, com preços e parcelamento em até 21x. Loja Ortobom T-7, Goiânia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / Colchões</div>
+    <h1>Colchões Ortobom</h1>
+    <p>Das linhas de entrada Fashion ao topo de linha Ouro — molas ensacadas, viscoelástico, tecnologia antiviral e muito mais. Parcele em até 21x.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:36px;">
+  <div class="wrap">
+    <div class="line-filters" id="line-filters">
+      <button class="line-filter-btn active" data-line="">Todos</button>
+      <button class="line-filter-btn" data-line="Linha Ouro">Linha Ouro</button>
+      <button class="line-filter-btn" data-line="Pró Saúde">Pró Saúde</button>
+      <button class="line-filter-btn" data-line="Fashion">Fashion</button>
+    </div>
+    <div class="grid" id="grid-colchoes" style="margin-top:26px;"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="products-data.js"></script>
+<script src="site.js"></script>
+<script>
+  const allColchoes = getProductsByCategory('colchoes');
+
+  function renderLine(line){
+    const items = line ? allColchoes.filter(p => p.line === line) : allColchoes;
+    renderProductGrid('grid-colchoes', items);
+  }
+
+  document.querySelectorAll('.line-filter-btn').forEach(btn => {
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.line-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderLine(btn.getAttribute('data-line'));
+      const url = new URL(window.location);
+      if (btn.getAttribute('data-line')) url.searchParams.set('line', btn.getAttribute('data-line'));
+      else url.searchParams.delete('line');
+      window.history.replaceState({}, '', url);
+    });
+  });
+
+  // Aplica filtro vindo da URL (?line=Linha Ouro), se houver
+  const initialLine = new URLSearchParams(window.location.search).get('line');
+  if (initialLine){
+    const btn = Array.from(document.querySelectorAll('.line-filter-btn')).find(b => b.getAttribute('data-line') === initialLine);
+    if (btn){
+      document.querySelectorAll('.line-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  }
+  renderLine(initialLine || '');
+</script>
+</body>
+</html>

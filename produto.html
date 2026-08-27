@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Produto | Ortobom T-7</title>
+<meta name="description" id="page-desc" content="Confira os detalhes deste produto Ortobom na loja Ortobom T-7, Goiânia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="section" style="padding-top:44px;">
+  <div class="wrap">
+    <div class="breadcrumb" id="breadcrumb" style="color:var(--ink-soft);margin-bottom:26px;"></div>
+    <style>#breadcrumb a{color:var(--blue);}</style>
+    <div id="product-root"></div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section" id="related-section" style="display:none;">
+  <div class="wrap">
+    <div class="section-head"><div><span class="section-kicker">Você também pode gostar</span><h2>Outros modelos da mesma linha</h2></div></div>
+    <div class="grid" id="grid-related"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="products-data.js"></script>
+<script src="site.js"></script>
+<script>
+  const id = new URLSearchParams(window.location.search).get('id');
+  const product = PRODUCTS.find(p => p.id === id);
+  const root = document.getElementById('product-root');
+  const catLabel = {colchoes:'Colchões', acessorios:'Acessórios', bases:'Bases', cabeceiras:'Cabeceiras', 'roupas-de-cama':'Roupas de Cama', travesseiros:'Travesseiros', moveis:'Móveis'};
+
+  if (!product){
+    root.innerHTML = `<div class="coming-soon"><div class="glyph">🔍</div><h2>Produto não encontrado</h2><p>Esse produto pode ter mudado de nome ou saído do catálogo.</p><a href="colchoes.html" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Ver catálogo de colchões</a></div>`;
+  } else {
+    document.getElementById('page-title').textContent = `${product.name} | Ortobom T-7`;
+    document.getElementById('page-desc').setAttribute('content', product.desc);
+    const catPage = product.category + '.html';
+    document.getElementById('breadcrumb').innerHTML = `<a href="index.html">Início</a> / <a href="${catPage}">${catLabel[product.category]||''}</a> / ${product.name}`;
+
+    root.innerHTML = `
+      <div class="product-detail">
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-detail-info">
+          <span class="section-kicker">${product.line || catLabel[product.category] || ''}</span>
+          <h1>${product.name}</h1>
+          <div class="price-block">
+            ${product.price
+              ? `<strong>R$ ${formatPrice(product.price)}</strong><span>${product.priceNote ? product.priceNote : 'Casal'} · a partir de · até 21x sem juros</span>`
+              : `<strong class="price-consult" style="font-size:22px;">Consulte o preço</strong>`}
+          </div>
+          <p class="desc">${product.desc}</p>
+          <a href="${waLink(product.name)}" target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:inline-block;">Chamar no WhatsApp sobre este produto</a>
+        </div>
+      </div>
+    `;
+
+    // Relacionados: mesma linha, excluindo o próprio produto
+    const related = PRODUCTS.filter(p => p.line === product.line && p.id !== product.id).slice(0,4);
+    if (related.length){
+      document.getElementById('related-section').style.display = '';
+      renderProductGrid('grid-related', related, product.line);
+    }
+  }
+</script>
+</body>
+</html>

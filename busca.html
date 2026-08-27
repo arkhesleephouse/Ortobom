@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultados da busca | Ortobom T-7</title>
+<meta name="description" content="Resultados de busca no catálogo Ortobom T-7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / Busca</div>
+    <h1 id="search-title">Resultados da busca</h1>
+    <p id="search-subtitle"></p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:36px;">
+  <div class="wrap">
+    <div class="grid" id="grid-search"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="products-data.js"></script>
+<script src="site.js"></script>
+<script>
+  const q = new URLSearchParams(window.location.search).get('q') || '';
+  document.getElementById('search-title').textContent = q ? `Resultados para "${q}"` : 'Todos os produtos';
+  const nq = normalize(q);
+  const results = q
+    ? PRODUCTS.filter(p => normalize(p.name).includes(nq) || normalize(p.line).includes(nq) || normalize(p.category).includes(nq) || normalize(p.desc).includes(nq))
+    : PRODUCTS;
+  document.getElementById('search-subtitle').textContent = `${results.length} produto${results.length===1?'':'s'} encontrado${results.length===1?'':'s'}.`;
+
+  if (!results.length){
+    document.getElementById('grid-search').outerHTML = `
+      <div class="coming-soon">
+        <div class="glyph">🔍</div>
+        <h2>Nada encontrado por aqui</h2>
+        <p>Não achamos produtos com esse termo. Que tal falar direto com um consultor? A loja tem mais opções do que o site ainda mostra.</p>
+        <a href="#" data-wa-generic target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Falar no WhatsApp</a>
+      </div>`;
+  } else {
+    renderProductGrid('grid-search', results);
+  }
+</script>
+</body>
+</html>
