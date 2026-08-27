@@ -50,7 +50,17 @@
 
     root.innerHTML = `
       <div class="product-detail">
-        <img src="${product.image}" alt="${product.name}">
+        <div>
+          <div class="product-gallery-main"><img id="gallery-main-img" src="${coverImage(product)}" alt="${product.name}"></div>
+          ${product.images.length > 1 ? `
+          <div class="product-gallery-thumbs">
+            ${product.images.map((img, i) => `
+              <button data-src="${img.url}" class="${i===0?'active':''}" title="${img.label||''}">
+                <img src="${img.url}" alt="${product.name} - ${img.label||''}">
+              </button>
+            `).join('')}
+          </div>` : ''}
+        </div>
         <div class="product-detail-info">
           <span class="section-kicker">${product.line || catLabel[product.category] || ''}</span>
           <h1>${product.name}</h1>
@@ -64,6 +74,15 @@
         </div>
       </div>
     `;
+
+    // Troca a foto principal ao clicar numa miniatura
+    document.querySelectorAll('.product-gallery-thumbs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('gallery-main-img').src = btn.getAttribute('data-src');
+        document.querySelectorAll('.product-gallery-thumbs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
 
     // Relacionados: mesma linha, excluindo o próprio produto
     const related = PRODUCTS.filter(p => p.line === product.line && p.id !== product.id).slice(0,4);
