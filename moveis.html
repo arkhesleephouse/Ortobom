@@ -22,14 +22,9 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top:36px;">
   <div class="wrap">
-    <div class="coming-soon">
-      <div class="glyph">🛋️</div>
-      <h2>Catálogo chegando em breve</h2>
-      <p>Ainda estamos organizando as fotos e preços de móveis pro site. Enquanto isso, fala com a gente no WhatsApp que já te mostramos as opções disponíveis na loja.</p>
-      <a href="#" data-wa-generic target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Falar sobre móveis no WhatsApp</a>
-    </div>
+    <div class="grid" id="grid-moveis"></div>
   </div>
 </section>
 
@@ -37,5 +32,8 @@
 
 <script src="products-data.js"></script>
 <script src="site.js"></script>
+<script>
+  renderProductGrid('grid-moveis', getProductsByCategory('moveis'));
+</script>
 </body>
 </html>
