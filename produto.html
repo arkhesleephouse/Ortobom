@@ -54,7 +54,7 @@
           <div class="product-gallery-main"><img id="gallery-main-img" src="${coverImage(product)}" alt="${product.name}"></div>
           ${product.images.length > 1 ? `
           <div class="color-selector">
-            <span class="color-selector-label">Cor: <strong id="color-selected-name">${product.images[0].label}</strong></span>
+            <span class="color-selector-label">Ver: <strong id="color-selected-name">${product.images[0].label}</strong></span>
             <div class="product-gallery-thumbs">
               ${product.images.map((img, i) => `
                 <button data-src="${img.url}" data-label="${img.label||''}" class="${i===0?'active':''}" title="${img.label||''}">
