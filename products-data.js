@@ -113,13 +113,13 @@ const PRODUCTS = [
    price:null, images:[{url:"almofada-rolete-camurca-black.jpg", label:"Preto"}, {url:"almofada-rolete-camurca-brown.jpg", label:"Marrom"}, {url:"almofada-rolete-camurca-cream.jpg", label:"Creme"}, {url:"almofada-rolete-camurca-gray.jpg", label:"Cinza"}]},
   {id:"encosto-dino-veludo", name:"Encosto Dino Veludo", category:"acessorios", line:"Uso Avulso",
    desc:"Encosto com apoio de braços, ideal pra ler ou assistir TV na cama.",
-   price:null, images:[{url:"encosto-dino-veludo.jpg", label:"Padrão"}]},
+   price:129, images:[{url:"encosto-dino-veludo.jpg", label:"Padrão"}]},
   {id:"massageador-alveolado", name:"Massageador Alveolado", category:"acessorios", line:"Uso Avulso",
    desc:"Massageador elétrico com múltiplos modos e intensidades.",
-   price:null, images:[{url:"massageador-alveolado.jpg", label:"Padrão"}]},
+   price:169, priceNote:"Casal", images:[{url:"massageador-alveolado.jpg", label:"Padrão"}]},
   {id:"tapete-de-yoga", name:"Tapete de Yoga", category:"acessorios", line:"Uso Avulso",
    desc:"Tapete antiderrapante Ortobom para yoga e exercícios em casa.",
-   price:null, images:[{url:"tapete-de-yoga.jpg", label:"Padrão"}]},
+   price:139, images:[{url:"tapete-de-yoga.jpg", label:"Padrão"}]},
 
   // ---------- BASES ----------
   {id:"base-sommier-bau-fashion-cori", name:"Base Sommier Baú Fashion Cori", category:"bases",
@@ -184,7 +184,7 @@ const PRODUCTS = [
    price:199, images:[{url:"travesseiro-anatomic-visco.jpg", label:"Padrão"}]},
   {id:"travesseiro-corpo-hug", name:"Travesseiro de Corpo Hug", category:"travesseiros",
    desc:"Travesseiro longo de corpo inteiro, ótimo pra gestantes ou lateral.",
-   price:null, images:[{url:"travesseiro-corpo-hug.jpg", label:"Padrão"}]},
+   price:179, images:[{url:"travesseiro-corpo-hug.jpg", label:"Padrão"}]},
   {id:"travesseiro-hospitalar", name:"Travesseiro Hospitalar", category:"travesseiros",
    desc:"Travesseiro impermeável, fácil higienização.",
    price:39, images:[{url:"travesseiro-hospitalar.jpg", label:"Padrão"}]},
@@ -205,10 +205,10 @@ const PRODUCTS = [
    price:159, images:[{url:"travesseiro-royal-pillow.jpg", label:"Padrão"}]},
   {id:"travesseiro-viscopur", name:"Travesseiro Viscopur", category:"travesseiros",
    desc:"Travesseiro viscoelástico com certificação de qualidade.",
-   price:null, images:[{url:"travesseiro-viscopur.jpg", label:"Padrão"}]},
+   price:169, images:[{url:"travesseiro-viscopur.jpg", label:"Padrão"}]},
   {id:"travesseiro-essence-plus", name:"Travesseiro Essence Plus", category:"travesseiros",
    desc:"Travesseiro com toque macio e suporte equilibrado.",
-   price:null, images:[{url:"travesseiro-essence-plus.jpg", label:"Padrão"}]},
+   price:499, images:[{url:"travesseiro-essence-plus.jpg", label:"Padrão"}]},
 
   // ---------- ROUPAS DE CAMA ----------
   {id:"capa-protetora-travesseiro", name:"Capa Protetora para Travesseiro Impermeável", category:"roupas-de-cama",
