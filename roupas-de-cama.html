@@ -22,14 +22,9 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="padding-top:36px;">
   <div class="wrap">
-    <div class="coming-soon">
-      <div class="glyph">🛌</div>
-      <h2>Catálogo chegando em breve</h2>
-      <p>Ainda estamos organizando as fotos e preços de roupas de cama pro site. Enquanto isso, fala com a gente no WhatsApp que já te mostramos as opções disponíveis na loja.</p>
-      <a href="#" data-wa-generic target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Falar sobre roupas de cama no WhatsApp</a>
-    </div>
+    <div class="grid" id="grid-roupas-de-cama"></div>
   </div>
 </section>
 
@@ -37,5 +32,8 @@
 
 <script src="products-data.js?v=1787939158"></script>
 <script src="site.js?v=1787939158"></script>
+<script>
+  renderProductGrid('grid-roupas-de-cama', getProductsByCategory('roupas-de-cama'));
+</script>
 </body>
 </html>

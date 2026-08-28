@@ -209,6 +209,20 @@ const PRODUCTS = [
   {id:"travesseiro-essence-plus", name:"Travesseiro Essence Plus", category:"travesseiros",
    desc:"Travesseiro com toque macio e suporte equilibrado.",
    price:null, images:[{url:"travesseiro-essence-plus.jpg", label:"Padrão"}]},
+
+  // ---------- ROUPAS DE CAMA ----------
+  {id:"capa-protetora-travesseiro", name:"Capa Protetora para Travesseiro Impermeável", category:"roupas-de-cama",
+   desc:"Capa impermeável que protege o travesseiro contra ácaros e umidade.",
+   price:29, images:[{url:"capa-protetora-travesseiro.jpg", label:"Padrão"}]},
+  {id:"protetor-colchao-fresh-touch", name:"Protetor de Colchão Fresh Touch", category:"roupas-de-cama",
+   desc:"Protetor com tecido Fresh Touch, sensação refrescante e proteção contra ácaros.",
+   price:699, priceNote:"Queen", images:[{url:"protetor-colchao-fresh-touch.jpg", label:"Padrão"}]},
+  {id:"protetor-colchao-infantil", name:"Protetor de Colchão Infantil Impermeável", category:"roupas-de-cama",
+   desc:"Protetor impermeável indicado para colchões infantis.",
+   price:69, priceNote:"Infantil", images:[{url:"protetor-colchao-infantil.jpg", label:"Padrão"}]},
+  {id:"protetor-colchao-impermeavel-algodao", name:"Protetor de Colchão Impermeável 100% Algodão", category:"roupas-de-cama",
+   desc:"Protetor impermeável em tecido 100% algodão, mais conforto e proteção pro sono.",
+   price:null, images:[{url:"protetor-colchao-impermeavel-algodao.jpg", label:"Padrão"}]},
 ];
 
 // Categorias do menu, na ordem de exibição, com metadados de cada página
