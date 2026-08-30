@@ -166,3 +166,15 @@ function injectLocalBusinessSchema(){
 
 document.addEventListener('DOMContentLoaded', injectPartials);
 document.addEventListener('DOMContentLoaded', injectLocalBusinessSchema);
+
+// Rastreia cliques em qualquer link de WhatsApp (Google Analytics)
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href*="wa.me/"]');
+  if (link && typeof gtag === 'function') {
+    gtag('event', 'click_whatsapp', {
+      'page_location': window.location.href,
+      'page_path': window.location.pathname,
+      'link_text': link.textContent.trim().slice(0, 60)
+    });
+  }
+});
