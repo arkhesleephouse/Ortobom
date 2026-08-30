@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Produto | Ortobom T-7</title>
 <meta name="description" id="page-desc" content="Confira os detalhes deste produto Ortobom na loja Ortobom T-7, Goiânia.">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Ortobom T-7">
+<meta property="og:title" id="og-title" content="Produto | Ortobom T-7">
+<meta property="og:description" id="og-desc" content="Confira os detalhes deste produto Ortobom na loja Ortobom T-7, Goiânia.">
+<meta property="og:image" id="og-image" content="https://www.ortobomt7.com.br/fachada.jpg">
+<meta property="og:url" id="og-url" content="https://www.ortobomt7.com.br/produto.html">
+<link rel="canonical" id="canonical-link" href="https://www.ortobomt7.com.br/produto.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -43,8 +50,15 @@
   if (!product){
     root.innerHTML = `<div class="coming-soon"><div class="glyph">🔍</div><h2>Produto não encontrado</h2><p>Esse produto pode ter mudado de nome ou saído do catálogo.</p><a href="colchoes.html" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Ver catálogo de colchões</a></div>`;
   } else {
-    document.getElementById('page-title').textContent = `${product.name} | Ortobom T-7`;
+    document.getElementById('page-title').textContent = `${product.name}${product.price ? ' - R$ ' + formatPrice(product.price) : ''} | Ortobom T-7`;
     document.getElementById('page-desc').setAttribute('content', product.desc);
+    const fullUrl = `https://www.ortobomt7.com.br/produto.html?id=${product.id}`;
+    const fullImg = `https://www.ortobomt7.com.br/${coverImage(product)}`;
+    document.getElementById('og-title').setAttribute('content', `${product.name} | Ortobom T-7`);
+    document.getElementById('og-desc').setAttribute('content', product.desc + (product.price ? ` A partir de R$ ${formatPrice(product.price)}.` : ''));
+    document.getElementById('og-image').setAttribute('content', fullImg);
+    document.getElementById('og-url').setAttribute('content', fullUrl);
+    document.getElementById('canonical-link').setAttribute('href', fullUrl);
     const catPage = product.category + '.html';
     document.getElementById('breadcrumb').innerHTML = `<a href="index.html">Início</a> / <a href="${catPage}">${catLabel[product.category]||''}</a> / ${product.name}`;
 
@@ -95,6 +109,43 @@
       document.getElementById('related-section').style.display = '';
       renderProductGrid('grid-related', related, product.line);
     }
+
+    // SEO: dados estruturados do produto (schema.org Product)
+    const productUrl = `https://www.ortobomt7.com.br/produto.html?id=${product.id}`;
+    const productSchema = {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.name,
+      "image": `https://www.ortobomt7.com.br/${coverImage(product)}`,
+      "description": product.desc,
+      "brand": { "@type": "Brand", "name": "Ortobom" },
+      "url": productUrl,
+    };
+    if (product.price) {
+      productSchema.offers = {
+        "@type": "Offer",
+        "priceCurrency": "BRL",
+        "price": product.price,
+        "availability": "https://schema.org/InStock",
+        "url": productUrl
+      };
+    }
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.ortobomt7.com.br/" },
+        { "@type": "ListItem", "position": 2, "name": catLabel[product.category] || '', "item": `https://www.ortobomt7.com.br/${product.category}.html` },
+        { "@type": "ListItem", "position": 3, "name": product.name, "item": productUrl }
+      ]
+    };
+    [productSchema, breadcrumbSchema].forEach((schema, i) => {
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
+    });
+
   }
 </script>
 </body>

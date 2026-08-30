@@ -129,4 +129,40 @@ function renderProductGrid(containerId, items, tagLabel){
   `).join('');
 }
 
+// ---------- SEO: dados estruturados (schema.org) ----------
+function injectLocalBusinessSchema(){
+  if (document.getElementById('schema-localbusiness')) return;
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Ortobom T-7",
+    "image": "https://www.ortobomt7.com.br/fachada.jpg",
+    "url": "https://www.ortobomt7.com.br/",
+    "telephone": "+5562363884245",
+    "priceRange": "R$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. T-7, 554",
+      "addressLocality": "Goiânia",
+      "addressRegion": "GO",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "11"
+    }
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'schema-localbusiness';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
 document.addEventListener('DOMContentLoaded', injectPartials);
+document.addEventListener('DOMContentLoaded', injectLocalBusinessSchema);
