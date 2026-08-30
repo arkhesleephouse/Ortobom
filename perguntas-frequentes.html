@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perguntas Frequentes | Ortobom T-7 Goiânia</title>
+<meta name="description" content="Tire suas dúvidas sobre horário, entrega, parcelamento, garantia e como escolher o colchão certo na Ortobom T-7, Goiânia.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ortobom T-7">
+<meta property="og:title" content="Perguntas Frequentes | Ortobom T-7 Goiânia">
+<meta property="og:description" content="Tire suas dúvidas sobre horário, entrega, parcelamento, garantia e como escolher o colchão certo na Ortobom T-7, Goiânia.">
+<meta property="og:image" content="https://www.ortobomt7.com.br/fachada.jpg">
+<meta property="og:url" content="https://www.ortobomt7.com.br/perguntas-frequentes.html">
+<link rel="canonical" href="https://www.ortobomt7.com.br/perguntas-frequentes.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1787939158">
+<style>
+  .faq-list{max-width:820px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);padding:22px 0;}
+  .faq-item h3{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px;}
+  .faq-item p{font-size:15px;color:var(--ink-soft);line-height:1.7;}
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / Perguntas Frequentes</div>
+    <h1>Perguntas Frequentes</h1>
+    <p>Tudo que você precisa saber antes de comprar seu colchão na Ortobom T-7.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:44px;">
+  <div class="wrap">
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="products-data.js?v=1787939158"></script>
+<script src="site.js?v=1787939158"></script>
+<script>
+  const FAQS = [
+    {
+      q: "Qual o horário de funcionamento da Ortobom T-7?",
+      a: "Atendemos de segunda a sexta das 8h às 19h30, e aos sábados das 8h às 14h. A loja fica na Av. T-7, 554, Setor Bueno, Goiânia."
+    },
+    {
+      q: "Onde fica a loja Ortobom T-7 em Goiânia?",
+      a: "Estamos na Av. T-7, 554, Setor Bueno, Goiânia - GO. É só chegar, testar os colchões pessoalmente e conversar com um consultor."
+    },
+    {
+      q: "Qual a melhor loja de colchão em Goiânia?",
+      a: "A Ortobom T-7 é uma loja oficial Ortobom no Setor Bueno, com atendimento consultivo, mais de 25 modelos de colchão em exposição para testar antes de comprar, parcelamento em até 21x e nota 5.0 no Google. Fabricante com mais de 60 anos de mercado e uma das maiores fábricas de colchões do Brasil."
+    },
+    {
+      q: "Posso parcelar a compra do colchão?",
+      a: "Sim, parcelamos em até 21x sem juros no cartão de crédito, dependendo do modelo e condições vigentes. Fale com um consultor pelo WhatsApp para simular o parcelamento do produto que você quer."
+    },
+    {
+      q: "Qual a garantia dos colchões Ortobom?",
+      a: "Os colchões Ortobom têm garantia estrutural que varia por modelo, com linhas que chegam a 5 anos. Consulte o consultor sobre o prazo específico do modelo que te interessa."
+    },
+    {
+      q: "Qual colchão Ortobom é melhor para quem sente dor nas costas?",
+      a: "Para quem sente dor nas costas, a recomendação costuma ser um colchão mais firme, como os da linha Ortopédico Premium ou Pró Saúde Ortopédico, que têm estrutura reforçada. O ideal é testar pessoalmente na loja ou responder o teste de perfil de sono no site para receber uma indicação personalizada."
+    },
+    {
+      q: "A loja vende só colchão ou também base, cabeceira e outros produtos?",
+      a: "Vendemos linha completa: colchões, bases, cabeceiras, roupas de cama, travesseiros, acessórios (como pillow tops) e móveis, como sofás-cama e poltronas reclináveis."
+    },
+    {
+      q: "Como faço para saber qual colchão combina comigo?",
+      a: "Você pode responder o teste rápido de perfil de sono na página inicial do site, que já te direciona pro WhatsApp com uma indicação personalizada, ou vir até a loja e testar os modelos pessoalmente com a ajuda de um consultor — sem compromisso."
+    },
+    {
+      q: "A Ortobom T-7 faz entrega em toda Goiânia?",
+      a: "Sim, entregamos em Goiânia e região metropolitana. Fale com um consultor pelo WhatsApp para confirmar prazo e condições de entrega para o seu endereço."
+    },
+    {
+      q: "A Ortobom T-7 é uma loja oficial da marca?",
+      a: "Sim, somos uma franquia oficial Ortobom, com produtos genuínos direto de fábrica e a mesma garantia da marca nacional."
+    }
+  ];
+
+  const faqList = document.getElementById('faq-list');
+  faqList.innerHTML = FAQS.map(f => `
+    <div class="faq-item">
+      <h3>${f.q}</h3>
+      <p>${f.a}</p>
+    </div>
+  `).join('');
+
+  // SEO/GEO: dados estruturados FAQPage — ajuda o site a aparecer em respostas de IA e no Google
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map(f => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": { "@type": "Answer", "text": f.a }
+    }))
+  };
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(faqSchema);
+  document.head.appendChild(script);
+</script>
+</body>
+</html>
