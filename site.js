@@ -167,14 +167,18 @@ function injectLocalBusinessSchema(){
 document.addEventListener('DOMContentLoaded', injectPartials);
 document.addEventListener('DOMContentLoaded', injectLocalBusinessSchema);
 
-// Rastreia cliques em qualquer link de WhatsApp (Google Analytics)
+// Rastreia cliques em qualquer link de WhatsApp (Google Analytics + Meta Pixel)
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href*="wa.me/"]');
-  if (link && typeof gtag === 'function') {
+  if (!link) return;
+  if (typeof gtag === 'function') {
     gtag('event', 'click_whatsapp', {
       'page_location': window.location.href,
       'page_path': window.location.pathname,
       'link_text': link.textContent.trim().slice(0, 60)
     });
+  }
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', { content_name: 'Clique no WhatsApp', content_category: window.location.pathname });
   }
 });
