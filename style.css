@@ -663,3 +663,29 @@
   .testimonials-grid{grid-template-columns:1fr;}
   .testimonials-head{flex-direction:column;align-items:flex-start;gap:10px;}
 }
+
+/* ===================== INSTAGRAM FOLLOW ===================== */
+.instagram-follow .wrap{max-width:1180px;}
+.instagram-follow-inner{
+  display:flex;align-items:center;gap:28px;flex-wrap:wrap;
+  background:linear-gradient(135deg, #4a3a7a 0%, #8b3a7a 35%, #c2447a 60%, #e08a4f 100%);
+  border-radius:24px;padding:44px;
+}
+.instagram-follow-icon{
+  width:64px;height:64px;border-radius:18px;flex-shrink:0;
+  background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+}
+.instagram-follow-icon svg{width:32px;height:32px;}
+.instagram-follow-text{flex:1;min-width:240px;}
+.instagram-follow-text h2{margin-top:4px;}
+.instagram-follow-text p{color:rgba(255,255,255,0.85);margin-top:8px;font-size:15px;}
+.instagram-follow-btn{
+  background:#fff;color:#8b3a7a;font-weight:700;white-space:nowrap;
+  box-shadow:0 10px 24px -8px rgba(0,0,0,0.3);
+}
+.instagram-follow-btn:hover{transform:translateY(-1px);}
+@media (max-width:700px){
+  .instagram-follow-inner{padding:32px 24px;text-align:center;flex-direction:column;}
+  .instagram-follow-btn{width:100%;text-align:center;}
+}
