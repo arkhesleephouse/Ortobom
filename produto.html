@@ -42,7 +42,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1788806655">
+<link rel="stylesheet" href="style.css?v=1788807002">
 </head>
 <body>
 
@@ -66,8 +66,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1788806655"></script>
-<script src="site.js?v=1788806655"></script>
+<script src="products-data.js?v=1788807002"></script>
+<script src="site.js?v=1788807002"></script>
 <script>
   const id = new URLSearchParams(window.location.search).get('id');
   const product = PRODUCTS.find(p => p.id === id);
@@ -110,7 +110,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
           <h1>${product.name}</h1>
           <div class="price-block">
             ${product.price
-              ? `<strong>R$ ${formatPrice(product.price)}</strong><span>${product.priceNote ? product.priceNote : 'Casal'} · a partir de · até 21x sem juros</span>`
+              ? `<strong>R$ ${formatPrice(product.price)}</strong><span>${product.priceNote ? product.priceNote : 'Casal'} · a partir de · até 21x no cartão</span>`
               : `<strong class="price-consult" style="font-size:22px;">Consulte o preço</strong>`}
           </div>
           <p class="desc">${product.desc}</p>
