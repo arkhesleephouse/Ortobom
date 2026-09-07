@@ -689,3 +689,28 @@
   .instagram-follow-inner{padding:32px 24px;text-align:center;flex-direction:column;}
   .instagram-follow-btn{width:100%;text-align:center;}
 }
+
+/* ===================== WHY CHOOSE US ===================== */
+.why-us-head{text-align:center;max-width:640px;margin:0 auto 34px;}
+.why-us-head h2{margin-top:6px;}
+.why-us-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:18px;
+}
+.why-us-card{
+  background:var(--card);border-radius:16px;padding:26px 20px;
+  box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  text-align:center;
+}
+.why-us-ic{
+  width:52px;height:52px;border-radius:14px;margin:0 auto 14px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold));
+  display:flex;align-items:center;justify-content:center;font-size:24px;
+}
+.why-us-card h4{font-size:15px;font-weight:700;margin-bottom:8px;}
+.why-us-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
+@media (max-width:940px){
+  .why-us-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:560px){
+  .why-us-grid{grid-template-columns:1fr;}
+}
