@@ -554,3 +554,32 @@
 .product-detail-info .price-block span{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px;}
 .product-detail-info p.desc{font-size:15.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px;}
 @media (max-width:800px){ .product-detail{grid-template-columns:1fr;gap:26px;} }
+
+/* ===================== BANNER CAROUSEL ===================== */
+.banner-carousel{position:relative;width:100%;overflow:hidden;background:#0A2050;}
+.banner-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.banner-slide{flex:0 0 100%;display:block;line-height:0;}
+.banner-slide img{width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;display:block;}
+.banner-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:rgba(10,32,80,0.45);color:#fff;font-size:26px;line-height:1;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:.2s;z-index:5;
+}
+.banner-arrow:hover{background:rgba(10,32,80,0.75);}
+.banner-arrow-prev{left:16px;}
+.banner-arrow-next{right:16px;}
+.banner-dots{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  display:flex;gap:8px;z-index:5;
+}
+.banner-dot{
+  width:9px;height:9px;border-radius:50%;border:none;
+  background:rgba(255,255,255,0.5);cursor:pointer;padding:0;transition:.2s;
+}
+.banner-dot.active{background:#fff;width:22px;border-radius:5px;}
+@media (max-width:700px){
+  .banner-arrow{width:34px;height:34px;font-size:20px;}
+  .banner-dots{bottom:10px;}
+}

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<meta charset="UTF-8">
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -29,7 +30,6 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 </script>
 
 <meta name="google-site-verification" content="OsPVNHBFEJmoen_KMbuovV2bu1-63jWOKmujYZvE4fA" />
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ortobom T-7 | Colchões e conforto para o seu sono, em Goiânia</title>
 <meta name="description" content="Ortobom T-7 — colchões, bases, cabeceiras e acessórios das linhas Ouro, Pró Saúde, Fashion e Pillow Top. Loja na Avenida T-7, Goiânia.">
@@ -49,27 +49,25 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-header"></div>
 
-<section class="hero" id="top">
-  <div class="chevrons"></div>
-  <div class="hero-inner">
-    <div>
-      <span class="eyebrow">Av. T-7 · Setor Bueno, Goiânia</span>
-      <h1>Sua próxima noite <em>bem dormida</em> começa numa Ortobom.</h1>
-      <p class="lead">Colchões, bases, cabeceiras e acessórios das linhas Ouro, Pró Saúde, Fashion e Pillow Top — com atendimento consultivo pra você escolher o conforto certo, sem achismo.</p>
-      <div class="hero-cta">
-        <a href="colchoes.html" class="btn-primary">Ver catálogo completo</a>
-        <a href="#" data-wa-generic target="_blank" rel="noopener" class="btn-ghost">Falar com um consultor</a>
-      </div>
-      <div class="hero-stats">
-        <div><strong>25+</strong><span>Modelos de colchão</span></div>
-        <div><strong>21x</strong><span>Sem juros no cartão</span></div>
-        <div><strong>5 anos</strong><span>Garantia estrutural*</span></div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="fachada.jpg" alt="Fachada da loja Ortobom T-7" style="object-position:center 25%;">
-      <div class="tag">Nossa loja · Av. T-7</div>
-    </div>
+<!-- BANNER CAROUSEL -->
+<section class="banner-carousel" id="top">
+  <div class="banner-track" id="banner-track">
+    <a href="#" class="banner-slide" id="banner-slide-loja">
+      <img src="conheca-loja.jpg" alt="Conheça a loja Ortobom T-7">
+    </a>
+    <a href="colchoes.html?line=Linha%20Ouro" class="banner-slide">
+      <img src="orion-linha-ouro.jpg" alt="Linha Ouro Ortobom — o luxo que seu sono merece">
+    </a>
+    <a href="#" class="banner-slide" data-wa-generic target="_blank" rel="noopener">
+      <img src="parcelamento.jpg" alt="Parcele sem juros na Ortobom T-7">
+    </a>
+  </div>
+  <button class="banner-arrow banner-arrow-prev" id="banner-prev" aria-label="Anterior">‹</button>
+  <button class="banner-arrow banner-arrow-next" id="banner-next" aria-label="Próximo">›</button>
+  <div class="banner-dots" id="banner-dots">
+    <button class="banner-dot active" data-slide="0" aria-label="Slide 1"></button>
+    <button class="banner-dot" data-slide="1" aria-label="Slide 2"></button>
+    <button class="banner-dot" data-slide="2" aria-label="Slide 3"></button>
   </div>
 </section>
 
@@ -212,6 +210,45 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <script src="site.js?v=1787939158"></script>
 <script>
   renderProductGrid('grid-destaques', PRODUCTS.filter(p => p.line === 'Linha Ouro').slice(0,4), 'Linha Ouro');
+
+  // Carrossel de banners
+  (function(){
+    const track = document.getElementById('banner-track');
+    const dots = document.querySelectorAll('.banner-dot');
+    const prevBtn = document.getElementById('banner-prev');
+    const nextBtn = document.getElementById('banner-next');
+    const slideEl = document.getElementById('banner-slide-loja');
+    let current = 0;
+    const total = 3;
+    let timer;
+
+    function goTo(i){
+      current = (i + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === current));
+    }
+    function next(){ goTo(current + 1); }
+    function prev(){ goTo(current - 1); }
+    function startAuto(){
+      clearInterval(timer);
+      timer = setInterval(next, 5000);
+    }
+    nextBtn.addEventListener('click', () => { next(); startAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); startAuto(); });
+    dots.forEach((d, idx) => d.addEventListener('click', () => { goTo(idx); startAuto(); }));
+    document.querySelector('.banner-carousel').addEventListener('mouseenter', () => clearInterval(timer));
+    document.querySelector('.banner-carousel').addEventListener('mouseleave', startAuto);
+    startAuto();
+
+    // Primeiro slide abre o modal de localização (aguarda footer injetar o botão)
+    if (slideEl) {
+      slideEl.addEventListener('click', (e) => {
+        e.preventDefault();
+        const locBtn = document.getElementById('btn-loc-modal');
+        if (locBtn) locBtn.click();
+      });
+    }
+  })();
 
   document.addEventListener('click', (e)=>{
     const btn = e.target.closest('.quiz-opt');
