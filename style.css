@@ -397,8 +397,8 @@
     max-width:1180px;margin:0 auto;position:relative;z-index:2;
     display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;
   }
-  .band h3{font-size:26px;font-weight:700;}
-  .band p{color:rgba(255,255,255,0.78);margin-top:10px;font-size:15px;max-width:480px;}
+  .band-media{border-radius:16px;overflow:hidden;line-height:0;}
+  .band-media img{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover;}
   .band-form{
     background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);
     border-radius:16px;padding:22px;
@@ -476,6 +476,7 @@
     .trust-inner{grid-template-columns:repeat(2,1fr);}
     .trust-item:nth-child(2){border-right:none;}
     .band-inner{grid-template-columns:1fr;}
+    .band-media img{aspect-ratio:4/3;}
     .locations{grid-template-columns:1fr;}
     .foot-inner{grid-template-columns:1fr;gap:26px;}
   }

@@ -43,7 +43,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1788802287">
+<link rel="stylesheet" href="style.css?v=1788804441">
 </head>
 <body>
 
@@ -191,9 +191,11 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <section class="band">
   <div class="chevrons"></div>
   <div class="band-inner">
-    <div>
-      <h3>Não sabe qual colchão combina com você?</h3>
-      <p>Responda uma pergunta rápida e a gente te indica a linha certa — sem enrolação, direto no WhatsApp com um consultor de verdade.</p>
+    <div class="band-media">
+      <picture>
+        <source media="(max-width: 940px)" srcset="quiz-mobile.jpg">
+        <img src="quiz-desktop.jpg" alt="Não sabe qual colchão combina com você? Responda uma pergunta rápida e a gente te indica a linha certa.">
+      </picture>
     </div>
     <div class="band-form">
       <button class="quiz-opt" data-q="Firme e ortopédico, pra quem sente dor nas costas">🦴 Prefiro um colchão bem firme</button>
@@ -215,8 +217,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1788802287"></script>
-<script src="site.js?v=1788802287"></script>
+<script src="products-data.js?v=1788804441"></script>
+<script src="site.js?v=1788804441"></script>
 <script>
   renderProductGrid('grid-destaques', PRODUCTS.filter(p => p.line === 'Linha Ouro').slice(0,4), 'Linha Ouro');
 
