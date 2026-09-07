@@ -574,6 +574,7 @@
 .banner-carousel{position:relative;width:100%;overflow:hidden;background:#0A2050;}
 .banner-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
 .banner-slide{flex:0 0 100%;display:block;line-height:0;}
+.banner-slide picture{display:block;}
 .banner-slide img{width:100%;height:auto;aspect-ratio:8/3;object-fit:cover;display:block;}
 .banner-arrow{
   position:absolute;top:50%;transform:translateY(-50%);
@@ -595,6 +596,7 @@
 }
 .banner-dot.active{background:#fff;width:22px;border-radius:5px;}
 @media (max-width:700px){
+  .banner-slide img{aspect-ratio:4/5;}
   .banner-arrow{width:34px;height:34px;font-size:20px;}
-  .banner-dots{bottom:10px;}
+  .banner-dots{bottom:14px;}
 }
