@@ -281,12 +281,13 @@
   @media (max-width:700px){
     .cat-circles{
       flex-wrap:nowrap;justify-content:flex-start;
-      overflow-x:auto;scroll-snap-type:x mandatory;
+      overflow-x:auto;scroll-snap-type:x proximity;
       gap:22px;padding:6px 20px 10px;margin:0 -20px;
       -webkit-overflow-scrolling:touch;scrollbar-width:none;
+      touch-action:pan-x;
     }
     .cat-circles::-webkit-scrollbar{display:none;}
-    .cat-circle{width:84px;flex:0 0 auto;scroll-snap-align:start;}
+    .cat-circle{width:84px;flex:0 0 auto;scroll-snap-align:start;-webkit-tap-highlight-color:transparent;}
     .cat-circle-ring{width:84px;height:84px;}
     .cat-circle-glyph{font-size:26px;}
     .cat-circle-label{font-size:13px;}
