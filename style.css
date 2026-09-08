@@ -702,9 +702,8 @@
   text-align:center;
 }
 .why-us-ic{
-  width:52px;height:52px;border-radius:14px;margin:0 auto 14px;
-  background:linear-gradient(135deg,var(--gold-light),var(--gold));
-  display:flex;align-items:center;justify-content:center;font-size:24px;
+  margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;font-size:34px;
 }
 .why-us-card h4{font-size:15px;font-weight:700;margin-bottom:8px;}
 .why-us-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.55;}
