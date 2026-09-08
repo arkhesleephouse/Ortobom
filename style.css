@@ -18,13 +18,13 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    font-family:'DM Sans',sans-serif;
+    font-family:'Lora',serif;
     background:var(--bg);
     color:var(--ink);
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,h4,.display{
-    font-family:'DM Sans',sans-serif;
+    font-family:'Montserrat',sans-serif;
     margin:0;
   }
   a{text-decoration:none;color:inherit;}
@@ -62,7 +62,7 @@
   }
   .logo{
     display:flex;align-items:center;gap:10px;
-    font-family:'DM Sans',sans-serif;font-weight:700;
+    font-family:'Montserrat',sans-serif;font-weight:700;
     color:#fff;font-size:20px;letter-spacing:0.2px;
     white-space:nowrap;
   }
@@ -114,7 +114,7 @@
   .modal-gallery img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
   .modal-gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:4px;}
   .modal-body{padding:28px;}
-  .modal-body h3{font-size:22px;font-weight:700;font-family:'DM Sans',sans-serif;}
+  .modal-body h3{font-size:22px;font-weight:700;}
   .modal-row{display:flex;gap:14px;margin-top:18px;align-items:flex-start;}
   .modal-map{width:100%;height:220px;border:0;border-radius:14px;margin-top:20px;}
   @media (max-width:600px){
@@ -194,7 +194,7 @@
   }
   .hero-stats div{min-width:110px;}
   .hero-stats strong{
-    display:block;font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;
+    display:block;font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#fff;
   }
   .hero-stats span{font-size:12.5px;color:rgba(255,255,255,0.68);}
 
@@ -275,7 +275,7 @@
   }
   .cat-circle:hover .cat-circle-ring img{transform:scale(1.1);}
   .cat-circle-label{
-    font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:600;
+    font-family:'Lora',serif;font-size:14.5px;font-weight:600;
     color:var(--ink);letter-spacing:0.1px;text-align:center;
   }
   @media (max-width:700px){
@@ -377,7 +377,7 @@
     margin-top:10px;padding-top:10px;border-top:1px solid var(--line);
     display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
   }
-  .card-price strong{font-size:18px;font-weight:700;color:var(--navy);font-family:'DM Sans',sans-serif;}
+  .card-price strong{font-size:18px;font-weight:700;color:var(--navy);font-family:'Lora',serif;}
   .card-price span{font-size:11.5px;color:var(--ink-soft);}
   .card-price .price-consult{font-size:14px;color:var(--blue);font-family:inherit;font-weight:700;}
   .card-cta{
@@ -450,7 +450,7 @@
     max-width:1180px;margin:0 auto;
     display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;
   }
-  .foot-logo{font-family:'DM Sans',sans-serif;font-weight:700;color:#fff;font-size:19px;}
+  .foot-logo{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:19px;}
   footer p{font-size:13.5px;line-height:1.6;margin-top:12px;}
   footer h5{color:#fff;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:14px;}
   footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
@@ -600,7 +600,7 @@
 .product-detail-info .section-kicker{margin-bottom:10px;}
 .product-detail-info h1{font-size:32px;font-weight:700;letter-spacing:-0.5px;}
 .product-detail-info .price-block{margin:22px 0;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.product-detail-info .price-block strong{font-size:32px;font-weight:700;color:var(--navy);font-family:'DM Sans',sans-serif;}
+.product-detail-info .price-block strong{font-size:32px;font-weight:700;color:var(--navy);font-family:'Lora',serif;}
 .product-detail-info .price-block span{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px;}
 .product-detail-info p.desc{font-size:15.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:26px;}
 @media (max-width:800px){ .product-detail{grid-template-columns:1fr;gap:26px;} }
@@ -644,7 +644,7 @@
 .testimonials-head h2{margin-top:6px;}
 .testimonials-rating{
   display:flex;align-items:center;gap:8px;
-  font-family:'DM Sans',sans-serif;font-size:15px;color:var(--ink-soft);
+  font-family:'Lora',serif;font-size:15px;color:var(--ink-soft);
 }
 .testimonials-rating strong{font-size:22px;color:var(--ink);font-weight:800;}
 .testimonials-stars{color:var(--gold);font-size:16px;letter-spacing:2px;}
