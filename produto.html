@@ -48,7 +48,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791309055">
+<link rel="stylesheet" href="style.css?v=1791309433">
 </head>
 <body>
 
@@ -72,10 +72,11 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791309055"></script>
-<script src="product-specs.js?v=1791309055"></script>
-<script src="site.js?v=1791309055"></script>
+<script src="products-data.js?v=1791309433"></script>
+<script src="product-specs.js?v=1791309433"></script>
+<script src="site.js?v=1791309433"></script>
 <script>
+  function sizeName(m){return ({"88 x 188":"Solteiro","108 x 198":"Solteiro Extra","138 x 188":"Casal","158 x 198":"Queen","193 x 203":"King"})[m]||"Medida";}
   const id = new URLSearchParams(window.location.search).get('id');
   const product = PRODUCTS.find(p => p.id === id);
   const root = document.getElementById('product-root');
@@ -121,7 +122,15 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
               ? `<span class="from">${product.priceNote ? product.priceNote : 'Casal'} · a partir de</span><strong>R$ ${formatPrice(product.price)}</strong><span>Parcele em até 21x no cartão</span>`
               : `<strong class="price-consult" style="font-size:22px;">Consulte o preço</strong>`}
           </div>
-          <a href="${waLink(product.name)}" target="_blank" rel="noopener" class="pd-cta">Quero este produto no WhatsApp</a>
+          ${(typeof SPECS!=='undefined' && SPECS[product.id]) ? `
+          <div class="pd-sizes">
+            <span class="pd-sizes-label">Tamanho: <strong id="pd-size-name"></strong></span>
+            <div class="pd-sizes-opts">
+              ${SPECS[product.id].medidas.map(m=>`<button type="button" data-m="${m}"><b>${sizeName(m)}</b><i>${m} cm</i></button>`).join('')}
+            </div>
+            <p class="pd-sizes-note">Valores e condições por tamanho: consulte uma oferta personalizada com nosso consultor.</p>
+          </div>` : ''}
+          <a href="${waLink(product.name)}" target="_blank" rel="noopener" class="pd-cta" id="pd-cta">Quero este produto no WhatsApp</a>
           <a href="https://www.google.com/maps/search/?api=1&query=Ortobom+T-7+Av.+T-7+554+Goi%C3%A2nia" target="_blank" rel="noopener" class="pd-cta-sec">Experimentar na loja · Av. T-7, 554, Setor Bueno</a>
           <p class="pd-note">Preços e condições sujeitos a confirmação com a loja.</p>
         </div>
@@ -140,6 +149,21 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
       <div id="pd-combine"></div>
     `;
 
+
+    // Seletor de tamanho -> mensagem de WhatsApp com o tamanho escolhido
+    (function(){
+      const btns=[...document.querySelectorAll('.pd-sizes-opts button')]; if(!btns.length) return;
+      const cta=document.getElementById('pd-cta'), nm=document.getElementById('pd-size-name');
+      function pick(b){
+        btns.forEach(x=>x.classList.toggle('active',x===b));
+        const m=b.dataset.m, n=sizeName(m); nm.textContent=n==='Medida' ? m+' cm' : n;
+        const msg=`Oi! Vi o colchão ${product.name} no tamanho ${n==='Medida'?'':n+' '}(${m} cm) no site da Ortobom T-7 e quero mais informações.`;
+        cta.href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+        cta.textContent='Falar com um consultor sobre este tamanho';
+      }
+      btns.forEach(b=>b.addEventListener('click',()=>pick(b)));
+      pick(btns.find(b=>b.dataset.m==='138 x 188')||btns[0]);
+    })();
 
     // Galeria: miniaturas, setas, teclado e deslize
     (function(){
