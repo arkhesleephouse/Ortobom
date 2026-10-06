@@ -48,7 +48,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791307913">
+<link rel="stylesheet" href="style.css?v=1791309055">
 </head>
 <body>
 
@@ -72,8 +72,9 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791307913"></script>
-<script src="site.js?v=1791307913"></script>
+<script src="products-data.js?v=1791309055"></script>
+<script src="product-specs.js?v=1791309055"></script>
+<script src="site.js?v=1791309055"></script>
 <script>
   const id = new URLSearchParams(window.location.search).get('id');
   const product = PRODUCTS.find(p => p.id === id);
@@ -98,17 +99,17 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
     root.innerHTML = `
       <div class="product-detail">
         <div>
-          <div class="product-gallery-main"><img id="gallery-main-img" src="${coverImage(product)}" alt="${product.name}"></div>
+          <div class="product-gallery-main">
+            <img id="gallery-main-img" src="${coverImage(product)}" alt="${product.name}">
+            ${product.images.length > 1 ? `<button class="g-arrow g-prev" aria-label="Foto anterior">‹</button><button class="g-arrow g-next" aria-label="Próxima foto">›</button><span class="g-count" id="g-count">1 / ${product.images.length}</span>` : ''}
+          </div>
           ${product.images.length > 1 ? `
-          <div class="color-selector">
-            <span class="color-selector-label">Ver: <strong id="color-selected-name">${product.images[0].label}</strong></span>
-            <div class="product-gallery-thumbs">
-              ${product.images.map((img, i) => `
-                <button data-src="${img.url}" data-label="${img.label||''}" class="${i===0?'active':''}" title="${img.label||''}">
-                  <img src="${img.url}" alt="${product.name} - ${img.label||''}">
-                </button>
-              `).join('')}
-            </div>
+          <div class="product-gallery-thumbs">
+            ${product.images.map((img, i) => `
+              <button data-i="${i}" class="${i===0?'active':''}" title="${img.label||''}">
+                <img src="${img.url}" alt="${product.name} - ${img.label||''}" loading="lazy">
+              </button>
+            `).join('')}
           </div>` : ''}
         </div>
         <div class="product-detail-info">
@@ -125,18 +126,51 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
           <p class="pd-note">Preços e condições sujeitos a confirmação com a loja.</p>
         </div>
       </div>
+      ${(typeof SPECS!=='undefined' && SPECS[product.id]) ? (()=>{const s=SPECS[product.id];return `
+      <div class="pd-specs">
+        <h2>Ficha técnica</h2>
+        <div class="pd-specs-grid">
+          <div><span>Altura</span><strong>${s.altura}</strong></div>
+          <div><span>Medidas disponíveis (cm)</span><strong>${s.medidas.join(' · ')}</strong></div>
+          <div><span>Garantia</span><strong>${s.garantia.join(' · ')}</strong></div>
+        </div>
+        <ul class="pd-feats">${s.destaques.map(d=>`<li>${d}</li>`).join('')}</ul>
+        <p class="pd-note">Informações do catálogo oficial Ortobom. Fotos meramente ilustrativas; confirme medidas e disponibilidade com a loja.</p>
+      </div>`})() : ''}
+      <div id="pd-combine"></div>
     `;
 
-    // Troca a foto principal e o nome da cor ao clicar numa miniatura
-    document.querySelectorAll('.product-gallery-thumbs button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('gallery-main-img').src = btn.getAttribute('data-src');
-        const nameEl = document.getElementById('color-selected-name');
-        if (nameEl) nameEl.textContent = btn.getAttribute('data-label');
-        document.querySelectorAll('.product-gallery-thumbs button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
+
+    // Galeria: miniaturas, setas, teclado e deslize
+    (function(){
+      const imgs = product.images; let cur = 0;
+      const main = document.getElementById('gallery-main-img');
+      const cnt = document.getElementById('g-count');
+      const nameEl = document.getElementById('color-selected-name');
+      function go(i){
+        cur = (i + imgs.length) % imgs.length;
+        main.src = imgs[cur].url;
+        if (cnt) cnt.textContent = (cur+1) + ' / ' + imgs.length;
+        document.querySelectorAll('.product-gallery-thumbs button').forEach((b,k)=>b.classList.toggle('active',k===cur));
+        const act = document.querySelector('.product-gallery-thumbs button.active'); if (act && act.scrollIntoView) act.scrollIntoView({block:'nearest',inline:'nearest'});
+      }
+      document.querySelectorAll('.product-gallery-thumbs button').forEach(b => b.addEventListener('click',()=>go(+b.dataset.i)));
+      const pv=document.querySelector('.g-prev'), nx=document.querySelector('.g-next');
+      if (pv) pv.addEventListener('click',()=>go(cur-1));
+      if (nx) nx.addEventListener('click',()=>go(cur+1));
+      document.addEventListener('keydown',e=>{ if(e.key==='ArrowLeft') go(cur-1); if(e.key==='ArrowRight') go(cur+1); });
+      let x0=null; main.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+      main.addEventListener('touchend',e=>{ if(x0===null) return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) go(cur+(dx<0?1:-1)); x0=null; });
+    })();
+
+    // Combina com: bases e travesseiros do catálogo (só para colchões)
+    if (product.category === 'colchoes'){
+      const combo = [...PRODUCTS.filter(p=>p.category==='bases').slice(0,2), ...PRODUCTS.filter(p=>p.category==='travesseiros').slice(0,2)];
+      if (combo.length){
+        document.getElementById('pd-combine').innerHTML = '<div class="pd-combine"><h2>Complete seu quarto</h2><div class="grid" id="grid-combine"></div></div>';
+        renderProductGrid('grid-combine', combo, '');
+      }
+    }
 
     // Relacionados: mesma linha, excluindo o próprio produto
     const related = PRODUCTS.filter(p => p.line === product.line && p.id !== product.id).slice(0,4);
