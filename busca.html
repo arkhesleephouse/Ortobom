@@ -40,8 +40,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <meta name="description" content="Resultados de busca no catálogo Ortobom T-7.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791312100">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1791312420">
 </head>
 <body>
 
@@ -63,8 +63,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791312100"></script>
-<script src="site.js?v=1791312100"></script>
+<script src="products-data.js?v=1791312420"></script>
+<script src="site.js?v=1791312420"></script>
 <script>
   const q = new URLSearchParams(window.location.search).get('q') || '';
   document.getElementById('search-title').textContent = q ? `Resultados para "${q}"` : 'Todos os produtos';
@@ -77,7 +77,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
   if (!results.length){
     document.getElementById('grid-search').outerHTML = `
       <div class="coming-soon">
-        <div class="glyph">🔍</div>
+        <div class="glyph"><svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
         <h2>Nada encontrado por aqui</h2>
         <p>Não achamos produtos com esse termo. Que tal falar direto com um consultor? A loja tem mais opções do que o site ainda mostra.</p>
         <a href="#" data-wa-generic target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Falar no WhatsApp</a>

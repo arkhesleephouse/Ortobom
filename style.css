@@ -803,3 +803,34 @@
   .fab-wpp svg{width:23px;height:23px;}
   .fab-wpp.fab-hide{transform:translateY(90px);opacity:0;pointer-events:none;}
 }
+
+/* Tipografia: Montserrat como base; Lora só em frases editoriais */
+body{font-family:'Montserrat',sans-serif;}
+.section-head p,.testimonial-card p,.why-us-head p,.hero p.lead{font-family:'Lora',serif;}
+.cat-circle-label,.card-price strong{font-family:'Montserrat',sans-serif;}
+.cat-circle-label{font-weight:600;font-size:14px;}
+
+/* Ícones de linha com profundidade */
+.why-us-card{position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 14px 30px -18px rgba(18,26,43,.35);}
+.why-us-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--gold-light));opacity:.9;}
+.why-us-card:hover{transform:translateY(-4px);box-shadow:0 22px 38px -18px rgba(18,26,43,.45);}
+.why-us-ic{width:60px;height:60px;border-radius:50%;margin:0 auto 16px;color:var(--gold-light);
+  background:radial-gradient(circle at 30% 25%,#24407a,var(--navy-deep) 70%);
+  box-shadow:0 10px 20px -8px rgba(18,26,43,.55),0 0 0 4px rgba(201,162,39,.16);}
+.why-us-ic svg{width:26px;height:26px;}
+.cat-circle-glyph{color:var(--gold-light);display:flex;filter:none;}
+.cat-circle-glyph svg{width:40px;height:40px;}
+.quiz-opt{display:flex;align-items:center;gap:12px;}
+.quiz-opt svg{flex:none;color:var(--gold-light);}
+.coming-soon .glyph{display:flex;justify-content:center;color:var(--blue);}
+
+/* Diferenciais com fotos reais da loja */
+.why-us-card.why-us-photo{padding:0;border:0;aspect-ratio:4/5;background:var(--navy-deep);text-align:left;border-radius:16px;}
+.why-us-card.why-us-photo::before{display:none;}
+.why-us-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+.why-us-photo:hover img{transform:scale(1.05);}
+.why-us-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,18,40,0) 35%,rgba(10,18,40,.88) 100%);}
+.why-us-cap{position:absolute;left:0;right:0;bottom:0;padding:18px 16px;z-index:1;color:#fff;}
+.why-us-photo h4{font-size:15.5px;font-weight:700;line-height:1.25;margin:0 0 4px;color:#fff;}
+.why-us-photo p{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.82);margin:0;}
+@media (max-width:940px){.why-us-card.why-us-photo{aspect-ratio:1/1;}}

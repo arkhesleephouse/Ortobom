@@ -47,8 +47,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="canonical" id="canonical-link" href="https://www.ortobomt7.com.br/produto.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791312100">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1791312420">
 </head>
 <body>
 
@@ -72,9 +72,9 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791312100"></script>
-<script src="product-specs.js?v=1791312100"></script>
-<script src="site.js?v=1791312100"></script>
+<script src="products-data.js?v=1791312420"></script>
+<script src="product-specs.js?v=1791312420"></script>
+<script src="site.js?v=1791312420"></script>
 <script>
   function sizeName(m){return ({"88 x 188":"Solteiro","108 x 198":"Solteiro Extra","138 x 188":"Casal","158 x 198":"Queen","193 x 203":"King"})[m]||"Medida";}
   const id = new URLSearchParams(window.location.search).get('id');
@@ -83,7 +83,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
   const catLabel = {colchoes:'Colchões', acessorios:'Acessórios', bases:'Bases', cabeceiras:'Cabeceiras', 'roupas-de-cama':'Roupas de Cama', travesseiros:'Travesseiros', moveis:'Móveis'};
 
   if (!product){
-    root.innerHTML = `<div class="coming-soon"><div class="glyph">🔍</div><h2>Produto não encontrado</h2><p>Esse produto pode ter mudado de nome ou saído do catálogo.</p><a href="colchoes.html" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Ver catálogo de colchões</a></div>`;
+    root.innerHTML = `<div class="coming-soon"><div class="glyph"><svg viewBox="0 0 24 24" width="52" height="52" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><h2>Produto não encontrado</h2><p>Esse produto pode ter mudado de nome ou saído do catálogo.</p><a href="colchoes.html" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;">Ver catálogo de colchões</a></div>`;
   } else {
     document.getElementById('page-title').textContent = `${product.name} | Ortobom T-7`;
     document.getElementById('page-desc').setAttribute('content', product.desc);
