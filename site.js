@@ -111,19 +111,16 @@ function renderProductGrid(containerId, items, tagLabel){
   }
   el.innerHTML = items.map(p => `
     <a href="produto.html?id=${p.id}" class="card">
-      <div class="card-img">
-        <img src="${coverImage(p)}" alt="${p.name}" loading="lazy">
-        <span class="card-tag">${tagLabel || p.line || ''}</span>
-      </div>
+      <div class="card-img"><img src="${coverImage(p)}" alt="${p.name}" loading="lazy"></div>
       <div class="card-body">
+        <span class="card-line">${tagLabel || p.line || ''}</span>
         <h3>${p.name}</h3>
-        <p>${p.desc}</p>
         <div class="card-price">
           ${p.price
-            ? `<strong>R$ ${formatPrice(p.price)}</strong><span>${p.priceNote ? p.priceNote : 'Casal'} · a partir de</span>`
+            ? `<span class="from">a partir de</span><strong>R$ ${formatPrice(p.price)}</strong>`
             : `<strong class="price-consult">Consulte o preço</strong>`}
         </div>
-        <div class="card-cta"><span>Ver detalhes →</span></div>
+        <span class="card-cta">Ver produto</span>
       </div>
     </a>
   `).join('');

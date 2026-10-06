@@ -48,7 +48,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1788891627">
+<link rel="stylesheet" href="style.css?v=1791307913">
 </head>
 <body>
 
@@ -72,8 +72,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1788891627"></script>
-<script src="site.js?v=1788891627"></script>
+<script src="products-data.js?v=1791307913"></script>
+<script src="site.js?v=1791307913"></script>
 <script>
   const id = new URLSearchParams(window.location.search).get('id');
   const product = PRODUCTS.find(p => p.id === id);
@@ -114,13 +114,15 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
         <div class="product-detail-info">
           <span class="section-kicker">${product.line || catLabel[product.category] || ''}</span>
           <h1>${product.name}</h1>
+          <p class="desc">${product.desc}</p>
           <div class="price-block">
             ${product.price
-              ? `<strong>R$ ${formatPrice(product.price)}</strong><span>${product.priceNote ? product.priceNote : 'Casal'} · a partir de · até 21x no cartão</span>`
+              ? `<span class="from">${product.priceNote ? product.priceNote : 'Casal'} · a partir de</span><strong>R$ ${formatPrice(product.price)}</strong><span>Parcele em até 21x no cartão</span>`
               : `<strong class="price-consult" style="font-size:22px;">Consulte o preço</strong>`}
           </div>
-          <p class="desc">${product.desc}</p>
-          <a href="${waLink(product.name)}" target="_blank" rel="noopener" class="btn-primary" style="background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:inline-block;">Chamar no WhatsApp sobre este produto</a>
+          <a href="${waLink(product.name)}" target="_blank" rel="noopener" class="pd-cta">Quero este produto no WhatsApp</a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Ortobom+T-7+Av.+T-7+554+Goi%C3%A2nia" target="_blank" rel="noopener" class="pd-cta-sec">Experimentar na loja · Av. T-7, 554, Setor Bueno</a>
+          <p class="pd-note">Preços e condições sujeitos a confirmação com a loja.</p>
         </div>
       </div>
     `;
