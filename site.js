@@ -5,12 +5,39 @@
 // ===================================================================
 const WHATSAPP_NUMBER = "556236384245"; // (62) 3638-4245
 
+
+// Origem do visitante (UTM / anúncio / Google / Instagram), guardada na sessão.
+// O WhatsApp não carrega UTM, então a origem vai como uma linha curta no fim da mensagem.
+function getOrigem(){
+  try{
+    let o = sessionStorage.getItem('t7_origem');
+    if (o !== null) return o;
+    const p = new URLSearchParams(location.search);
+    let v = p.get('utm_source') || '';
+    const camp = p.get('utm_campaign');
+    if (v && camp) v += '/' + camp;
+    if (!v && p.get('fbclid')) v = 'meta';
+    if (!v && p.get('gclid')) v = 'google';
+    if (!v && document.referrer){
+      try{ const h = new URL(document.referrer).hostname.replace(/^www\./,'');
+        if (h && h !== location.hostname.replace(/^www\./,'')) v = h; }catch(e){}
+    }
+    v = v.slice(0,40);
+    sessionStorage.setItem('t7_origem', v);
+    return v;
+  }catch(e){ return ''; }
+}
+function withOrigem(text){
+  const o = getOrigem();
+  return o ? `${text}\n(Origem: ${o})` : text;
+}
+
 function waLink(label, isCategory){
   let base;
   if (isCategory) base = `Olá! Vim pelo site da Ortobom T-7 e quero saber mais sobre ${label}.`;
   else if (label) base = `Olá! Vim pelo site da Ortobom T-7 e quero saber mais sobre o produto ${label}.`;
   else base = `Olá! Vim pelo site da Ortobom T-7 e gostaria de falar com um consultor.`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base)}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(withOrigem(base))}`;
 }
 
 
@@ -156,19 +183,57 @@ function injectLocalBusinessSchema(){
 document.addEventListener('DOMContentLoaded', injectPartials);
 document.addEventListener('DOMContentLoaded', injectLocalBusinessSchema);
 
-// Rastreia cliques em qualquer link de WhatsApp (Google Analytics + Meta Pixel)
+// Contexto do clique no WhatsApp: produto, categoria e onde na página foi o clique
+function currentProduct(){
+  try{
+    if (!/produto\.html$/.test(location.pathname) || typeof PRODUCTS === 'undefined') return null;
+    const id = new URLSearchParams(location.search).get('id');
+    return PRODUCTS.find(p => p.id === id) || null;
+  }catch(e){ return null; }
+}
+function trackWhatsApp(secao){
+  const p = currentProduct();
+  const info = {
+    secao: secao || 'pagina',
+    page_path: location.pathname,
+    product_id: p ? p.id : undefined,
+    product_name: p ? p.name : undefined,
+    product_category: p ? p.category : undefined,
+    origem: getOrigem() || 'direto'
+  };
+  if (typeof gtag === 'function'){
+    gtag('event', 'click_whatsapp', Object.assign({ page_location: location.href }, info));
+  }
+  if (typeof fbq === 'function'){
+    fbq('track', 'Lead', {
+      content_name: p ? p.name : 'Clique no WhatsApp',
+      content_category: p ? p.category : location.pathname,
+      content_ids: p ? [p.id] : undefined,
+      secao: info.secao, origem: info.origem
+    });
+  }
+}
 document.addEventListener('click', (e) => {
   const link = e.target.closest('a[href*="wa.me/"]');
   if (!link) return;
-  if (typeof gtag === 'function') {
-    gtag('event', 'click_whatsapp', {
-      'page_location': window.location.href,
-      'page_path': window.location.pathname,
-      'link_text': link.textContent.trim().slice(0, 60)
-    });
+  let secao = 'pagina';
+  if (link.closest('.fab-wpp')) secao = 'botao_flutuante';
+  else if (link.id === 'pd-cta' || link.closest('.pd-cta')) secao = 'produto';
+  else if (link.closest('header')) secao = 'cabecalho';
+  else if (link.closest('footer')) secao = 'rodape';
+  else if (link.closest('.search-empty')) secao = 'busca_sem_resultado';
+  trackWhatsApp(secao);
+});
+
+// Visualização de produto (para públicos de remarketing e relatórios; sem valores)
+document.addEventListener('DOMContentLoaded', () => {
+  const p = currentProduct();
+  if (!p) return;
+  if (typeof fbq === 'function'){
+    fbq('track', 'ViewContent', { content_ids: [p.id], content_name: p.name, content_category: p.category, content_type: 'product' });
   }
-  if (typeof fbq === 'function') {
-    fbq('track', 'Lead', { content_name: 'Clique no WhatsApp', content_category: window.location.pathname });
+  if (typeof gtag === 'function'){
+    gtag('event', 'view_item', { items: [{ item_id: p.id, item_name: p.name, item_category: p.category }] });
   }
 });
 
