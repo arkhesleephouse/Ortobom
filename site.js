@@ -13,9 +13,6 @@ function waLink(label, isCategory){
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(base)}`;
 }
 
-function formatPrice(p){
-  return p.toLocaleString('pt-BR', {minimumFractionDigits:0, maximumFractionDigits:0});
-}
 
 function normalize(str){
   return (str||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
