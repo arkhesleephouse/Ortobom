@@ -795,3 +795,11 @@
 
 /* Produto — coluna única no celular */
 @media (max-width:800px){ .product-detail{grid-template-columns:minmax(0,1fr);} .product-detail-info{position:static;} }
+
+/* Botão flutuante de WhatsApp — menor no celular e recolhe ao rolar para baixo */
+.fab-wpp{transition:transform .25s ease,opacity .25s ease;}
+@media (max-width:700px){
+  .fab-wpp{width:48px;height:48px;bottom:14px;right:14px;opacity:.95;}
+  .fab-wpp svg{width:23px;height:23px;}
+  .fab-wpp.fab-hide{transform:translateY(90px);opacity:0;pointer-events:none;}
+}

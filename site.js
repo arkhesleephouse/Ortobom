@@ -171,3 +171,20 @@ document.addEventListener('click', (e) => {
     fbq('track', 'Lead', { content_name: 'Clique no WhatsApp', content_category: window.location.pathname });
   }
 });
+
+// Botão flutuante: no celular, esconde ao rolar para baixo e volta ao rolar para cima
+(function(){
+  let last = window.scrollY, ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      const fab = document.querySelector('.fab-wpp');
+      const y = window.scrollY;
+      if (fab){
+        if (y > last + 8 && y > 200) fab.classList.add('fab-hide');
+        else if (y < last - 8 || y < 200) fab.classList.remove('fab-hide');
+      }
+      last = y; ticking = false;
+    });
+  }, {passive:true});
+})();
