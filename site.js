@@ -110,7 +110,7 @@ function renderProductGrid(containerId, items, tagLabel){
     return;
   }
   el.innerHTML = items.map(p => `
-    <a href="produto.html?id=${p.id}" class="card">
+    <a href="produto.html?id=${p.id}" class="card${p.category==='colchoes' ? '' : ' contain'}">
       <div class="card-img"><img src="${coverImage(p)}" alt="${p.name}" loading="lazy"></div>
       <div class="card-body">
         <span class="card-line">${tagLabel || p.line || ''}</span>

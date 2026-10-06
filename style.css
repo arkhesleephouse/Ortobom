@@ -784,3 +784,11 @@
 .pd-sizes-opts button i{display:block;font-style:normal;font-size:11.5px;color:var(--ink-soft);margin-top:2px;}
 .pd-sizes-opts button.active{border-color:var(--navy-deep);box-shadow:inset 0 0 0 1px var(--navy-deep);}
 .pd-sizes-note{font-size:13px;color:var(--ink-soft);margin:12px 0 0;line-height:1.5;}
+
+/* Produtos que não são colchões: foto inteira, sem corte */
+.grid .card.contain .card-img{background:#fff;border:1px solid var(--line);}
+.grid .card.contain .card-img img{object-fit:contain;object-position:center;padding:6%;}
+.cat-contain .product-gallery-main{background:#fff;border:1px solid var(--line);}
+.cat-contain .product-gallery-main img{object-fit:contain;}
+.product-detail{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+.product-detail > div{min-width:0;}
