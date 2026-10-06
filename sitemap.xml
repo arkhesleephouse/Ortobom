@@ -181,12 +181,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ortobomt7.com.br/produto.html?id=colchonete-all-day</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.ortobomt7.com.br/produto.html?id=pillow-top-hr-gel</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -532,6 +526,27 @@
 
   <url>
     <loc>https://www.ortobomt7.com.br/produto.html?id=base-sommier-bau-bi-nobuck</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ortobomt7.com.br/produto.html?id=almofada-rolete-nobuck</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ortobomt7.com.br/produto.html?id=colchonete-small-academia</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ortobomt7.com.br/produto.html?id=light-ortopedico</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
