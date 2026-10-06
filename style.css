@@ -792,3 +792,6 @@
 .cat-contain .product-gallery-main img{object-fit:contain;}
 .product-detail{grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
 .product-detail > div{min-width:0;}
+
+/* Produto — coluna única no celular */
+@media (max-width:800px){ .product-detail{grid-template-columns:minmax(0,1fr);} .product-detail-info{position:static;} }
