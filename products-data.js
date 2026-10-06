@@ -155,12 +155,21 @@ const PRODUCTS = [
    images:[{url:"base-bau-bipartido-g1.jpg", label:"Detalhe"}, {url:"base-bau-bipartido-g2.jpg", label:"Detalhe"}, {url:"base-bau-bipartido-g3.jpg", label:"Detalhe"}, {url:"base-bau-bipartido-g4.jpg", label:"Detalhe"}, {url:"base-bau-bipartido-g5.jpg", label:"Detalhe"}]},
 
   // ---------- CABECEIRAS ----------
-  {id:"cabeceira-cherie", name:"Cabeceira Cherie", category:"cabeceiras",
-   desc:"Cabeceira estofada em linho, design clássico acolchoado.",
-   images:[{url:"cabeceira-cherie.jpg", label:"Padrão"}]},
-  {id:"cabeceira-glamour", name:"Cabeceira Glamour", category:"cabeceiras",
-   desc:"Cabeceira estofada em linho, acabamento sofisticado.",
-   images:[{url:"cabeceira-glamour.jpg", label:"Padrão"}]},
+  {id:"cabeceira-cherie", name:"Cabeceira Cherie Linho", category:"cabeceiras",
+   desc:"Design geométrico em blocos, com revestimento em linho e cinco tamanhos.",
+   images:[{url:"cabeceira-cherie-g1.jpg", label:"Preto"}, {url:"cabeceira-cherie-g2.jpg", label:"Preto · frente"}, {url:"cabeceira-cherie-g3.jpg", label:"Preto · outro tamanho"}]},
+  {id:"cabeceira-cherie-veludo", name:"Cabeceira Cherie Veludo", category:"cabeceiras",
+   desc:"Design geométrico em blocos, com revestimento em veludo e cinco tamanhos.",
+   images:[{url:"cabeceira-cherie-veludo-g1.jpg", label:"Cinza"}, {url:"cabeceira-cherie-veludo-g2.jpg", label:"Cinza · frente"}, {url:"cabeceira-cherie-veludo-g3.jpg", label:"Cinza · outro tamanho"}, {url:"cabeceira-cherie-veludo-g4.jpg", label:"Cinza · outro tamanho"}]},
+  {id:"cabeceira-glamour", name:"Cabeceira Glamour Linho", category:"cabeceiras",
+   desc:"Painéis verticais estofados, com revestimento em linho e cinco tamanhos.",
+   images:[{url:"cabeceira-glamour-g1.jpg", label:"Cinza"}, {url:"cabeceira-glamour-g2.jpg", label:"Cinza · frente"}, {url:"cabeceira-glamour-g3.jpg", label:"Detalhe do tecido"}, {url:"cabeceira-glamour-g4.jpg", label:"Preto"}, {url:"cabeceira-glamour-g5.jpg", label:"Marrom"}, {url:"cabeceira-glamour-g6.jpg", label:"Bege"}]},
+  {id:"cabeceira-lieve-cori", name:"Cabeceira Lieve Cori", category:"cabeceiras",
+   desc:"Design minimalista de linhas simples, com revestimento em corino.",
+   images:[{url:"cabeceira-lieve-cori-g1.jpg", label:"Preto"}, {url:"cabeceira-lieve-cori-g2.jpg", label:"Preto · frente"}, {url:"cabeceira-lieve-cori-g3.jpg", label:"Preto · outro tamanho"}, {url:"cabeceira-lieve-cori-g4.jpg", label:"Marrom"}, {url:"cabeceira-lieve-cori-g5.jpg", label:"Marrom"}]},
+  {id:"cabeceira-lovely-facto", name:"Cabeceira Lovely Facto", category:"cabeceiras",
+   desc:"Inspirada nos modelos Chesterfield, com detalhes em botões e linhas suaves.",
+   images:[{url:"cabeceira-lovely-facto-g1.jpg", label:"Creme"}, {url:"cabeceira-lovely-facto-g2.jpg", label:"Creme · frente"}, {url:"cabeceira-lovely-facto-g3.jpg", label:"Detalhe"}, {url:"cabeceira-lovely-facto-g4.jpg", label:"Branco"}, {url:"cabeceira-lovely-facto-g5.jpg", label:"Branco · outro tamanho"}]},
 
   // ---------- MÓVEIS ----------
   {id:"sofa-cama-malu", name:"Sofá Cama Malu", category:"moveis",
