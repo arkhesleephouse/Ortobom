@@ -102,7 +102,7 @@ function wireHeaderFooter(){
       } else {
         searchResults.innerHTML = matches.map(p => `
           <a class="search-item" href="p/${p.id}.html">
-            <img src="${coverImage(p)}" alt="${p.name}">
+            <img src="${coverImage(p)}" alt="${p.name}" loading="lazy" decoding="async">
             <div>
               <strong>${p.name}</strong>
               <span>${p.line || ''}</span>
@@ -135,7 +135,7 @@ function renderProductGrid(containerId, items, tagLabel){
   }
   el.innerHTML = items.map(p => `
     <a href="p/${p.id}.html" class="card${p.category==='colchoes' ? '' : ' contain'}">
-      <div class="card-img"><img src="${coverImage(p)}" alt="${p.name}" loading="lazy"></div>
+      <div class="card-img"><img src="${coverImage(p)}" alt="${p.name}" loading="lazy" decoding="async"></div>
       <div class="card-body">
         <span class="card-line">${tagLabel || p.line || ''}</span>
         <h3>${p.name}</h3>

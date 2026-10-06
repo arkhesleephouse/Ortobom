@@ -49,7 +49,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791327153">
+<link rel="stylesheet" href="style.css?v=1791328276">
 <script type="application/ld+json" id="schema-product">{"@context": "https://schema.org", "@type": "Product", "@id": "https://www.ortobomt7.com.br/p/fashion-standard.html#produto", "name": "Fashion Standard", "sku": "fashion-standard", "category": "Colchões", "image": "https://www.ortobomt7.com.br/fashion-standard.jpg", "description": "Entrada Ortobom com a qualidade que a marca garante.", "brand": {"@type": "Brand", "name": "Ortobom"}, "url": "https://www.ortobomt7.com.br/p/fashion-standard.html"}</script>
 <script type="application/ld+json" id="schema-breadcrumb">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Início", "item": "https://www.ortobomt7.com.br/"}, {"@type": "ListItem", "position": 2, "name": "Colchões", "item": "https://www.ortobomt7.com.br/colchoes.html"}, {"@type": "ListItem", "position": 3, "name": "Fashion Standard", "item": "https://www.ortobomt7.com.br/p/fashion-standard.html"}]}</script>
 </head>
@@ -76,9 +76,9 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <div id="site-footer"></div>
 
 <script>window.__PID="fashion-standard";</script>
-<script src="products-data.js?v=1791327153"></script>
-<script src="product-specs.js?v=1791327153"></script>
-<script src="site.js?v=1791327153"></script>
+<script src="products-data.js?v=1791328276"></script>
+<script src="product-specs.js?v=1791328276"></script>
+<script src="site.js?v=1791328276"></script>
 <script>
   function sizeName(m){return ({"88 x 188":"Solteiro","108 x 198":"Solteiro Extra","138 x 188":"Casal","158 x 198":"Queen","193 x 203":"King","120 x 8 x 90":"Solteiro","120 x 8 x 110":"Solteiro Extra","120 x 8 x 140":"Casal","120 x 8 x 160":"Queen","120 x 8 x 195":"King"})[m]||"Medida";}
   const id = window.__PID || new URLSearchParams(window.location.search).get('id');
@@ -115,7 +115,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
           <div class="product-gallery-thumbs">
             ${product.images.map((img, i) => `
               <button data-i="${i}" class="${i===0?'active':''}" title="${img.label||''}">
-                <img src="${img.url}" alt="${product.name} - ${img.label||''}" loading="lazy">
+                <img src="${img.url}" alt="${product.name} - ${img.label||''}" loading="lazy" decoding="async">
               </button>
             `).join('')}
           </div>` : ''}
