@@ -115,11 +115,7 @@ function renderProductGrid(containerId, items, tagLabel){
       <div class="card-body">
         <span class="card-line">${tagLabel || p.line || ''}</span>
         <h3>${p.name}</h3>
-        <div class="card-price">
-          ${p.price
-            ? `<span class="from">a partir de</span><strong>R$ ${formatPrice(p.price)}</strong>`
-            : `<strong class="price-consult">Consulte o preço</strong>`}
-        </div>
+        <div class="card-price"><strong class="price-consult">Consulte condições especiais</strong></div>
         <span class="card-cta">Ver produto</span>
       </div>
     </a>
@@ -136,7 +132,6 @@ function injectLocalBusinessSchema(){
     "image": "https://www.ortobomt7.com.br/fachada.jpg",
     "url": "https://www.ortobomt7.com.br/",
     "telephone": "+5562363884245",
-    "priceRange": "R$",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. T-7, 554",
