@@ -101,7 +101,7 @@ function wireHeaderFooter(){
         searchResults.innerHTML = `<div class="search-empty">Nenhum produto encontrado. <a href="${waLink()}" target="_blank" rel="noopener">Falar no WhatsApp</a></div>`;
       } else {
         searchResults.innerHTML = matches.map(p => `
-          <a class="search-item" href="produto.html?id=${p.id}">
+          <a class="search-item" href="p/${p.id}.html">
             <img src="${coverImage(p)}" alt="${p.name}">
             <div>
               <strong>${p.name}</strong>
@@ -134,7 +134,7 @@ function renderProductGrid(containerId, items, tagLabel){
     return;
   }
   el.innerHTML = items.map(p => `
-    <a href="produto.html?id=${p.id}" class="card${p.category==='colchoes' ? '' : ' contain'}">
+    <a href="p/${p.id}.html" class="card${p.category==='colchoes' ? '' : ' contain'}">
       <div class="card-img"><img src="${coverImage(p)}" alt="${p.name}" loading="lazy"></div>
       <div class="card-body">
         <span class="card-line">${tagLabel || p.line || ''}</span>
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', injectLocalBusinessSchema);
 // Contexto do clique no WhatsApp: produto, categoria e onde na página foi o clique
 function currentProduct(){
   try{
-    if (!/produto\.html$/.test(location.pathname) || typeof PRODUCTS === 'undefined') return null;
-    const id = new URLSearchParams(location.search).get('id');
+    if (!/(produto\.html|\/p\/[^/]+\.html)$/.test(location.pathname) || typeof PRODUCTS === 'undefined') return null;
+    const id = window.__PID || new URLSearchParams(location.search).get('id');
     return PRODUCTS.find(p => p.id === id) || null;
   }catch(e){ return null; }
 }
