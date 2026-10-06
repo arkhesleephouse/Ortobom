@@ -139,6 +139,12 @@ const PRODUCTS = [
   {id:"base-sommier-orthopur", name:"Base Sommier Orthopur", category:"bases",
    desc:"Base plana com revestimento em tecido de malha 100% poliéster e estrutura de madeira de reflorestamento.",
    images:[{url:"base-sommier-orthopur.jpg", label:"Padrão"}, {url:"base-sommier-orthopur-g1.jpg", label:"Detalhe"}, {url:"base-sommier-orthopur-g2.jpg", label:"Detalhe"}, {url:"base-sommier-orthopur-g3.jpg", label:"Detalhe"}, {url:"base-sommier-orthopur-g4.jpg", label:"Detalhe"}, {url:"base-sommier-orthopur-g5.jpg", label:"Detalhe"}]},
+  {id:"base-sommier-bau-bi-cori", name:"Base Sommier Baú Cori", category:"bases",
+   desc:"Base sommier estilo baú, com amplo espaço interno para guardar roupas de cama, toalhas e outros objetos, revestimento em Cori.",
+   images:[{url:"base-sommier-bau-bi-cori-black.jpg", label:"Preto"}, {url:"base-sommier-bau-bi-cori-gray.jpg", label:"Cinza"}, {url:"base-sommier-bau-bi-cori-white.jpg", label:"Branco"}, {url:"base-sommier-bau-bi-cori-brown.jpg", label:"Marrom"}, {url:"base-sommier-bau-bi-cori-g1.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-cori-g2.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-cori-g3.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-cori-g4.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-cori-g5.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-cori-g6.jpg", label:"Detalhe"}]},
+  {id:"base-sommier-bau-bi-nobuck", name:"Base Sommier Baú Nobuck", category:"bases",
+   desc:"Base sommier estilo baú, com amplo espaço interno para guardar roupas de cama, toalhas e outros objetos, revestimento em nobuck.",
+   images:[{url:"base-sommier-bau-bi-nobuck-gray.jpg", label:"Cinza"}, {url:"base-sommier-bau-bi-nobuck-black.jpg", label:"Preto"}, {url:"base-sommier-bau-bi-nobuck-g1.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-nobuck-g2.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-nobuck-g3.jpg", label:"Detalhe"}, {url:"base-sommier-bau-bi-nobuck-g4.jpg", label:"Detalhe"}]},
   {id:"base-sommier-cori", name:"Base Sommier Cori", category:"bases",
    desc:"Base com acabamento Cori, disponível em várias cores.",
    images:[{url:"base-sommier-cori-white.jpg", label:"Branco"}, {url:"base-sommier-cori-black.jpg", label:"Preto"}, {url:"base-sommier-cori-g1.jpg", label:"Detalhe"}, {url:"base-sommier-cori-g2.jpg", label:"Detalhe"}, {url:"base-sommier-cori-g3.jpg", label:"Detalhe"}, {url:"base-sommier-cori-g4.jpg", label:"Detalhe"}, {url:"base-sommier-cori-g5.jpg", label:"Detalhe"}]},
@@ -246,9 +252,6 @@ const PRODUCTS = [
   {id:"protetor-colchao-infantil", name:"Protetor de Colchão Infantil Impermeável", category:"roupas-de-cama",
    desc:"Protetor impermeável indicado para colchões infantis.",
    images:[{url:"protetor-colchao-infantil.jpg", label:"Padrão"}, {url:"protetor-colchao-infantil-g1.jpg", label:"Ambiente"}]},
-  {id:"protetor-colchao-impermeavel-algodao", name:"Protetor de Colchão Impermeável 100% Algodão", category:"roupas-de-cama",
-   desc:"Protetor impermeável em tecido 100% algodão, mais conforto e proteção pro sono.",
-   images:[{url:"protetor-colchao-impermeavel-algodao.jpg", label:"Padrão"}]},
 ];
 
 // Categorias do menu, na ordem de exibição, com metadados de cada página

@@ -343,12 +343,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.ortobomt7.com.br/produto.html?id=protetor-colchao-impermeavel-algodao</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.ortobomt7.com.br/produto.html?id=colchoes</loc>
     <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -525,6 +519,20 @@
   <url>
     <loc>https://www.ortobomt7.com.br/produto.html?id=base-sommier-bau-linho</loc>
     <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ortobomt7.com.br/produto.html?id=base-sommier-bau-bi-cori</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.ortobomt7.com.br/produto.html?id=base-sommier-bau-bi-nobuck</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
