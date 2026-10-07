@@ -4,6 +4,7 @@
 // e da busca (dropdown ao vivo + página de resultados).
 // ===================================================================
 const WHATSAPP_NUMBER = "556236384245"; // (62) 3638-4245
+const GOOGLE_REVIEWS_URL = "https://maps.google.com/?cid=6307448776089531956"; // ficha da loja no Google
 
 
 // Origem do visitante (UTM / anúncio / Google / Instagram), guardada na sessão.

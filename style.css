@@ -834,3 +834,10 @@ body{font-family:'Montserrat',sans-serif;}
 .why-us-photo h4{font-size:15.5px;font-weight:700;line-height:1.25;margin:0 0 4px;color:#fff;}
 .why-us-photo p{font-size:12.5px;line-height:1.4;color:rgba(255,255,255,.82);margin:0;}
 @media (max-width:940px){.why-us-card.why-us-photo{aspect-ratio:1/1;}}
+
+.proof-line{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;font-family:'Montserrat',sans-serif;font-size:13px;color:var(--ink-soft);}
+.proof-line b{color:var(--ink);font-weight:700;}
+.proof-line:hover{color:var(--ink);}
+.proof-line .testimonials-stars{font-size:14px;letter-spacing:1px;}
+.proof-more{font-family:'Montserrat',sans-serif;font-weight:600;font-size:14px;color:var(--navy);border-bottom:1.5px solid var(--gold);padding-bottom:2px;}
+.qz-cta + .proof-line{justify-content:flex-start;}
