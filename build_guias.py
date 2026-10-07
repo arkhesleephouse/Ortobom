@@ -28,18 +28,18 @@ f'''<title>{E(title)} | Ortobom T-7 Goiânia</title>
 <meta property="og:image" content="{SITE}/quiz-desktop.jpg">
 <meta property="og:url" content="{canon}">
 <link rel="canonical" href="{canon}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v={V}">
 <script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>
 </head>
 <body>
 
 <div id="site-header"></div>
+<main id="conteudo">
 
 {body}
 
+</main>
 <div id="site-footer"></div>
 
 <script src="products-data.js?v={V}"></script>

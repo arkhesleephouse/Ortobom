@@ -46,14 +46,16 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <meta property="og:image" content="https://www.ortobomt7.com.br/fachada.jpg">
 <meta property="og:url" content="https://www.ortobomt7.com.br/">
 <link rel="canonical" href="https://www.ortobomt7.com.br/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=1791375341">
+<link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=1791380511">
+<script type="application/ld+json" id="schema-localbusiness">{"@context": "https://schema.org", "@type": ["Store", "FurnitureStore"], "@id": "https://www.ortobomt7.com.br/#loja", "name": "Ortobom T-7", "description": "Loja de colchões Ortobom no Setor Bueno, em Goiânia: colchões, bases, cabeceiras e acessórios.", "image": "https://www.ortobomt7.com.br/fachada.jpg", "url": "https://www.ortobomt7.com.br/", "telephone": "+5562363884245", "hasMap": "https://maps.google.com/?cid=6307448776089531956", "address": {"@type": "PostalAddress", "streetAddress": "Av. T-7, 554", "addressLocality": "Goiânia", "addressRegion": "GO", "postalCode": "74210-260", "addressCountry": "BR"}, "geo": {"@type": "GeoCoordinates", "latitude": -16.6908403, "longitude": -49.2768907}, "areaServed": {"@type": "City", "name": "Goiânia"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00"}], "sameAs": ["https://www.instagram.com/ortobomt7", "https://maps.google.com/?cid=6307448776089531956"], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "11"}}</script>
+<link rel="preload" as="image" href="conheca-loja-mobile.jpg" media="(max-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="conheca-loja.jpg" media="(min-width: 701px)" fetchpriority="high">
 </head>
 <body>
 
 <div id="site-header"></div>
+<main id="conteudo">
 
 <!-- BANNER CAROUSEL -->
 <section class="banner-carousel" id="top">
@@ -91,23 +93,35 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
     <div class="trust-inner">
       <div class="trust-item">
         <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-        <div><h4>Parcele em até 21x</h4><p>No cartão de crédito</p></div>
+        <div><div class="tt">Parcele em até 21x</div><p>No cartão de crédito</p></div>
       </div>
       <div class="trust-item">
         <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></div>
-        <div><h4>Garantia de fábrica</h4><p>Estrutura e espuma certificadas</p></div>
+        <div><div class="tt">Garantia de fábrica</div><p>Estrutura e espuma certificadas</p></div>
       </div>
       <div class="trust-item">
         <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="15" height="12" rx="2"/><path d="M16 10h4l3 3v5h-7z"/><circle cx="6" cy="20" r="2"/><circle cx="18.5" cy="20" r="2"/></svg></div>
-        <div><h4>Entrega e montagem</h4><p>Goiânia e região metropolitana</p></div>
+        <div><div class="tt">Entrega e montagem</div><p>Goiânia e região metropolitana</p></div>
       </div>
       <div class="trust-item">
         <div class="trust-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 1 1-8.5-8.5c2 0 3.9.7 5.3 1.9"/><path d="M21 4v5h-5"/></svg></div>
-        <div><h4>Atendimento consultivo</h4><p>A gente te ajuda a escolher</p></div>
+        <div><div class="tt">Atendimento consultivo</div><p>A gente te ajuda a escolher</p></div>
       </div>
     </div>
   </div>
 </div>
+
+<section class="home-intro">
+  <div class="wrap">
+    <span class="section-kicker">Ortobom T-7 · Setor Bueno</span>
+    <h1>Loja de colchões em Goiânia</h1>
+    <p>Colchões, bases, cabeceiras e acessórios Ortobom na Av. T-7, 554. Atendimento consultivo para você escolher o colchão certo para o seu jeito de dormir — e testar deitando.</p>
+    <div class="home-intro-cta">
+      <a href="quiz.html" class="btn-primary">Descobrir meu colchão</a>
+      <a href="colchoes.html" class="btn-ghost" style="color:var(--navy);border-color:var(--navy);">Ver colchões</a>
+    </div>
+  </div>
+</section>
 
 <!-- WHY CHOOSE US -->
 <section class="section why-us-section" style="padding-top:60px;">
@@ -119,23 +133,23 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
     <div class="why-us-grid">
       <div class="why-us-card why-us-photo">
         <img src="loja-venda.jpg?v=1791313637" alt="Consultor da Ortobom T-7 atendendo uma cliente ao lado de um colchão" loading="lazy" decoding="async" style="object-position:center 30%">
-        <div class="why-us-cap"><h4>Venda consultiva especializada</h4></div>
+        <div class="why-us-cap"><h3>Venda consultiva especializada</h3></div>
       </div>
       <div class="why-us-card why-us-photo">
         <img src="loja-climatizada.jpg?v=1791313816" alt="Salão da Ortobom T-7 com colchões em exposição" loading="lazy" decoding="async" style="object-position:center 50%">
-        <div class="why-us-cap"><h4>Loja limpa e climatizada</h4></div>
+        <div class="why-us-cap"><h3>Loja limpa e climatizada</h3></div>
       </div>
       <div class="why-us-card why-us-photo">
         <img src="loja-estacionamento.jpg?v=1791314243" alt="Fachada da Ortobom T-7 ao entardecer com vagas de estacionamento" loading="lazy" decoding="async" style="object-position:center 60%">
-        <div class="why-us-cap"><h4>Estacionamento próprio</h4></div>
+        <div class="why-us-cap"><h3>Estacionamento próprio</h3></div>
       </div>
       <div class="why-us-card why-us-photo">
         <img src="loja-recepcao.jpg?v=1791314459" alt="Café servido na recepção da Ortobom T-7, com os colchões ao fundo" loading="lazy" decoding="async" style="object-position:center 50%">
-        <div class="why-us-cap"><h4>Recepção VIP</h4></div>
+        <div class="why-us-cap"><h3>Recepção VIP</h3></div>
       </div>
       <div class="why-us-card why-us-photo">
         <img src="loja-negociacao.jpg?v=1791314531" alt="Consultor da Ortobom T-7 mostrando o catálogo a uma cliente na mesa de atendimento" loading="lazy" decoding="async" style="object-position:center 40%">
-        <div class="why-us-cap"><h4>Negociação sob medida</h4></div>
+        <div class="why-us-cap"><h3>Negociação sob medida</h3></div>
       </div>
     </div>
   </div>
@@ -303,10 +317,11 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
   </div>
 </section>
 
+</main>
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791375341"></script>
-<script src="site.js?v=1791375341"></script>
+<script src="products-data.js?v=1791380511"></script>
+<script src="site.js?v=1791380511"></script>
 <script>
   renderProductGrid('grid-destaques', PRODUCTS.filter(p => p.line === 'Linha Ouro').slice(0,4), 'Linha Ouro');
 

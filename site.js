@@ -152,21 +152,57 @@ function injectLocalBusinessSchema(){
   if (document.getElementById('schema-localbusiness')) return;
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Store",
+    "@type": [
+      "Store",
+      "FurnitureStore"
+    ],
+    "@id": "https://www.ortobomt7.com.br/#loja",
     "name": "Ortobom T-7",
+    "description": "Loja de colchões Ortobom no Setor Bueno, em Goiânia: colchões, bases, cabeceiras e acessórios.",
     "image": "https://www.ortobomt7.com.br/fachada.jpg",
     "url": "https://www.ortobomt7.com.br/",
     "telephone": "+5562363884245",
+    "hasMap": "https://maps.google.com/?cid=6307448776089531956",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Av. T-7, 554",
       "addressLocality": "Goiânia",
       "addressRegion": "GO",
+      "postalCode": "74210-260",
       "addressCountry": "BR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -16.6908403,
+      "longitude": -49.2768907
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "Goiânia"
+    },
     "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "19:30" },
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "08:00", "closes": "14:00" }
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "19:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/ortobomt7",
+      "https://maps.google.com/?cid=6307448776089531956"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
