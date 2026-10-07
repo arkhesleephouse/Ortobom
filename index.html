@@ -47,7 +47,7 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 <meta property="og:url" content="https://www.ortobomt7.com.br/">
 <link rel="canonical" href="https://www.ortobomt7.com.br/">
 <link rel="preload" href="fonts/montserrat-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="style.css?v=1791380511">
+<link rel="stylesheet" href="style.css?v=1791383849">
 <script type="application/ld+json" id="schema-localbusiness">{"@context": "https://schema.org", "@type": ["Store", "FurnitureStore"], "@id": "https://www.ortobomt7.com.br/#loja", "name": "Ortobom T-7", "description": "Loja de colchões Ortobom no Setor Bueno, em Goiânia: colchões, bases, cabeceiras e acessórios.", "image": "https://www.ortobomt7.com.br/fachada.jpg", "url": "https://www.ortobomt7.com.br/", "telephone": "+5562363884245", "hasMap": "https://maps.google.com/?cid=6307448776089531956", "address": {"@type": "PostalAddress", "streetAddress": "Av. T-7, 554", "addressLocality": "Goiânia", "addressRegion": "GO", "postalCode": "74210-260", "addressCountry": "BR"}, "geo": {"@type": "GeoCoordinates", "latitude": -16.6908403, "longitude": -49.2768907}, "areaServed": {"@type": "City", "name": "Goiânia"}, "openingHoursSpecification": [{"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "19:30"}, {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "14:00"}], "sameAs": ["https://www.instagram.com/ortobomt7", "https://maps.google.com/?cid=6307448776089531956"], "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "11"}}</script>
 <link rel="preload" as="image" href="conheca-loja-mobile.jpg" media="(max-width: 700px)" fetchpriority="high">
 <link rel="preload" as="image" href="conheca-loja.jpg" media="(min-width: 701px)" fetchpriority="high">
@@ -68,14 +68,14 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
     </a>
     <a href="colchoes.html?line=Linha%20Ouro" class="banner-slide">
       <picture>
-        <source media="(max-width: 700px)" srcset="linha-ouro-mobile.jpg">
-        <img src="orion-linha-ouro.jpg" alt="Linha Ouro Ortobom — o luxo que seu sono merece">
+        <source media="(max-width: 700px)" data-srcset="linha-ouro-mobile.jpg">
+        <img data-src="orion-linha-ouro.jpg" alt="Linha Ouro Ortobom — o luxo que seu sono merece">
       </picture>
     </a>
     <a href="#" class="banner-slide" data-wa-generic target="_blank" rel="noopener">
       <picture>
-        <source media="(max-width: 700px)" srcset="parcelamento-mobile.jpg">
-        <img src="parcelamento.jpg" alt="Parcele em até 21x na Ortobom T-7">
+        <source media="(max-width: 700px)" data-srcset="parcelamento-mobile.jpg">
+        <img data-src="parcelamento.jpg" alt="Parcele em até 21x na Ortobom T-7">
       </picture>
     </a>
   </div>
@@ -87,6 +87,11 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
     <button class="banner-dot" data-slide="2" aria-label="Slide 3"></button>
   </div>
 </section>
+<script>
+// Slides 2 e 3 só carregam depois da página pronta, para não competir com a primeira imagem
+(function(){function go(){document.querySelectorAll('#banner-track [data-src],#banner-track [data-srcset]').forEach(function(e){if(e.dataset.srcset)e.srcset=e.dataset.srcset;if(e.dataset.src)e.src=e.dataset.src;});}
+if(document.readyState==='complete')setTimeout(go,300);else window.addEventListener('load',function(){setTimeout(go,300);});})();
+</script>
 
 <div class="trust">
   <div class="wrap">
@@ -320,8 +325,8 @@ src="https://www.facebook.com/tr?id=1391934322269959&ev=PageView&noscript=1"
 </main>
 <div id="site-footer"></div>
 
-<script src="products-data.js?v=1791380511"></script>
-<script src="site.js?v=1791380511"></script>
+<script src="products-data.js?v=1791383849"></script>
+<script src="site.js?v=1791383849"></script>
 <script>
   renderProductGrid('grid-destaques', PRODUCTS.filter(p => p.line === 'Linha Ouro').slice(0,4), 'Linha Ouro');
 
