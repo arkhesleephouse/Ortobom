@@ -82,6 +82,12 @@
     add(MAP[sens][linha], 'Combina com o que você descreveu');
     if (ans.quem === 'casal' && linha === 'ouro') add('pro-saude-superpocket','Opção de molas ensacadas, boa para casal');
     if (ans.calor === 'sim') add('orthopur','Para quem sente calor');
+    // Sempre oferece uma segunda opção: a mesma sensação em outra linha
+    if (picks.length < 2){
+      const outra = linha === 'ouro' ? 'saude' : (linha === 'saude' ? 'ouro' : 'saude');
+      const nome = {ouro:'Linha Ouro', saude:'Linha Pró Saúde'}[outra];
+      add(MAP[sens][outra], 'Mesma sensação na ' + nome);
+    }
     return picks.slice(0,3);
   }
 
